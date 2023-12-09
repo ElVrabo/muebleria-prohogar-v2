@@ -1,1 +1,15 @@
-export const HOME = "/";
+export const FORMREGISTER = "/"
+export const FORMLOGIN="/login"
+export const HOME = "/home";
+export const CATALOG = "/catalog"
+export const CATALOGID = "/catalog/:ProductID"
+export const FORMADMIN = "/formadmin"
+export const DASHBOARD = "/dashboard"
+export const PROFILE = "/profile"
+export const EDITPROFILE = "/profile/:userID"
+export const FAVORITEPRODUCTS = '/favoriteProducts'
+export const FORMADDPRODUCTS = '/formaddProducts'
+export const MANAGEPRODUCTS = '/manageProducts'
+export const SHOPPINGCART = '/shoppingCart'
+export const CONTACT = '/contact'
+export const FORMADDADDRESS = '/formAddAddress/:ID'

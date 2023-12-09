@@ -1,0 +1,18 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    
+}
+.logo img{
+    width: 200px;
+}
+.link1{
+    text-decoration: none;
+    color: black;
+}
+.link2{
+    text-decoration: none;
+    color: black;
+}

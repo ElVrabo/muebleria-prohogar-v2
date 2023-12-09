@@ -1,0 +1,49 @@
+.navigation{
+    display: flex;
+    justify-content: space-around;
+
+    /* height: auto; */
+    align-items: center;
+    background-color: #ffffff;
+    height: auto
+}
+
+/*Esilos para el logo*/
+.logo-furniture img{
+    width: 200px;
+}
+
+
+.link-navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    
+}
+.link-navigation h5{
+    color: orange;
+    margin-top: 8px;
+}
+.link-navigation .links{
+    color: orange;
+    text-decoration: none;
+}
+.icon-cart{
+    display: flex;
+    gap: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .navigation{
+        display: flex;
+        flex-direction: column;
+    }
+    .link-navigation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+}
+

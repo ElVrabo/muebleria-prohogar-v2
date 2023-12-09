@@ -1,0 +1,15 @@
+import axios from "./axios"
+
+export const getProductsRequest = ()=>axios.get('/products')
+export const getFavoriteProductsRequest = ()=>axios.get('/favoriteProducts')
+export const addFavoriteProductsRequest = (data)=>axios.post('/favoriteProducts',data)
+export const addProductsRequest = (data)=>axios.post('/products',data)
+export const deleteProductsRequest = (id) =>axios.delete(`/products/${id}`)
+export const deleteFavoriteProductsRequest = (id)=>axios.delete(`/favoriteProducts/${id}`)
+export const getProductsOnSaleRequest = ()=>axios.get('/productsOnSale')
+export const getProductOnSaleRequest = (id) =>axios.get(`/productsOnSale/${id}`)
+export const addProductsOnSaleRequest = (data)=>axios.post('/productsOnSale', data)
+export const deleteProductsOnSaleRequest = (id)=>axios.delete(`/productsOnSale/${id}`)
+export const searchProductsOnSaleRequest = (product)=>axios.get(`/filterProducts?nameProduct=${product}`)
+export const editProductsOnSaleRequest =(id,product) => axios.put(`/editProductOnSale/${id}`,product)
+export const filterProductsCategoryRequest = (product)=>axios.get(`/filterProductsCategory?categoryProduct=${product}`)

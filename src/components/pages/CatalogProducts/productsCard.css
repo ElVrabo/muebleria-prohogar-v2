@@ -1,0 +1,16 @@
+.body-products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    width: 300px;
+}
+.body-products img{
+    width: 250px;
+    height: 200px;
+}
+.btns-card-products{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

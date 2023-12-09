@@ -1,0 +1,7 @@
+.container-carousel{
+    margin-top: 20px;
+}
+.image-carousel{
+    height: 470px;
+    filter: brightness(0.6);
+}

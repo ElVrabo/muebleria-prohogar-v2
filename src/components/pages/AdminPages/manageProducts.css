@@ -1,0 +1,23 @@
+.search-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+}
+.search-product input{
+    width: 300px;
+    text-align: center;
+    border: 2px solid orange;
+    border-radius: 5px;
+}
+.btn-search-product{
+    width: 100px;
+    height: 35px;
+    color: #fff;
+}
+.product-not-found{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

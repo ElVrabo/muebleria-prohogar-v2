@@ -1,0 +1,85 @@
+.navbar-profile{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffffff;
+    height: 55px;
+}
+.container-username{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+.username{
+    
+    width: 200px;
+}
+.container-email{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+.email{
+    
+    width: 200px;
+}
+.container-date{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+.date{
+    
+    width: 200px;
+}
+.container-about-user{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.body-about-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+   border-radius: 10px;
+    width: 450px;
+    height: 450px;
+    justify-content: center;
+    margin-top: 30px;
+    background-color: #ffffff;
+}
+.container-btn-edit-profile Button{
+color: #ffffff;
+}
+
+@media only screen and (max-width:600px){
+    .navbar-profile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 5px;
+    }
+    .body-about-user{
+        width: 95%;
+        height: auto;
+    }
+    .container-username{
+        display: flex;
+        flex-direction: column;
+    }
+    .container-email{
+        display: flex;
+        flex-direction: column;
+    }
+    .container-date{
+        display: flex;
+        flex-direction: column;
+    }
+}
