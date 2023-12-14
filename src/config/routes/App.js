@@ -1,14 +1,11 @@
 import "../../index.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FormLogin from '../../components/common/formUser/FormLogin';
-import FormRegister from '../../components/common/formUser/FormRegister';
 import { Route, Routes } from "react-router-dom";
-import { CATALOG, CATALOGID, CONTACT, DASHBOARD, EDITPROFILE, FAVORITEPRODUCTS, FORMADDADDRESS, FORMADDPRODUCTS, FORMADMIN, FORMLOGIN, FORMREGISTER, HOME, MANAGEPRODUCTS, PROFILE, SHOPPINGCART } from "./path";
+import { CATALOG, CATALOGID, CONTACT, DASHBOARD, EDITPROFILE, FAVORITEPRODUCTS, FORMADDADDRESS, FORMADDPRODUCTS, FORMADMIN, FORMLOGIN, FORMREGISTER, HOME, LOGIN, LOGINADMIN, MANAGEPRODUCTS, PROFILE, REGISTER, SHOPPINGCART } from "./path";
 import { Home } from "../../components/pages/Home/Home";
 import { UserContextProvider } from '../../context/usersContext';
 import { ProductsContextProvider } from '../../context/productsContext';
 import ProtectedRoutes from '../../ProtectedRoutes';
-import FormAdmin from '../../components/pages/AdminPages/FormAdmin';
 import Dashboard from '../../components/pages/AdminPages/Dashboard';
 import Profile from '../../components/pages/profile/Profile';
 import FavoriteProducts from '../../components/pages/profile/FavoriteProducts';
@@ -20,6 +17,9 @@ import CartPages from '../../components/pages/ProductsCart/CartPages.js';
 import EditProfilePages from '../../components/pages/profile/EditProfilePages';
 import ContactPages from '../../components/pages/Contact/ContactPages.tsx';
 import FormAddAdress from "../../components/pages/FormAddAddress/FormAddAdress.js";
+import LoginAdmin from "../../components/pages/AdminPages/LoginAdmin.js";
+import Login from "../../components/pages/Auth/Login.js";
+import Register from "../../components/pages/Auth/Register.js";
 
 
 
@@ -30,9 +30,9 @@ function App() {
      <UserContextProvider>
       <ProductsContextProvider>
       <Routes>
-      <Route path={FORMLOGIN} element={<FormLogin/>}/>
-      <Route path={FORMREGISTER} element={<FormRegister/>}/>
-      <Route path={FORMADMIN} element={<FormAdmin/>} />
+      <Route path={LOGIN} element={<Login/>}/>
+      <Route path={REGISTER} element={<Register/>}/>
+      <Route path={LOGINADMIN} element={<LoginAdmin/>} />
       <Route path={DASHBOARD} element={<Dashboard/>}/>
       <Route path={FORMADDPRODUCTS} element={<FormAddProducts/>} />
       <Route path={MANAGEPRODUCTS} element={<ManageProducts/>} />

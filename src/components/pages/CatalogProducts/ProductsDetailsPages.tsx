@@ -32,7 +32,8 @@ const ProductsDetailsPages = ()=>{
     return (
         <>
         {productSelected&&(
-            <div className="container-details-product" >
+            <div className="container-details-product">
+                <div className="body-details-product" >
             <img className="image-product" src={`http://localhost:4000/api/${productSelected.image}`}  />
             <div className="details-products">
             <h1 >{productSelected.name}</h1>
@@ -58,6 +59,7 @@ const ProductsDetailsPages = ()=>{
             </div>
             </div>
     
+            </div>
             </div>
         )}
         </>

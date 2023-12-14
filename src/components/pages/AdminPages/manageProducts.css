@@ -1,3 +1,17 @@
+.container-grids{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    height: 100vh;
+    gap: 10px;
+}
+.grid-sidebars{
+    grid-column: span 2;
+    background-color: orange;
+}
+.grid-products{
+    grid-column: span 10;
+    
+}
 .search-product{
     display: flex;
     justify-content: center;

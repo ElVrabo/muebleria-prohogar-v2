@@ -1,12 +1,13 @@
 import "./addProducts.css"
 import { Button } from "react-bootstrap"
 import { useForm} from "react-hook-form"
-import NavbarAdmin from "./NavbarAdmin"
 import React,{ useContext, useEffect, useState } from "react"
 import { productsContext } from "../../../context/productsContext"
 import { useParams } from "react-router-dom"
 import {Spinner} from "react-bootstrap"
 import { Alert } from "react-bootstrap"
+import HeaderAdmin from "./HeaderAdmin"
+import SideBar from "../../common/sideBar/SideBar"
 
 
 
@@ -97,7 +98,12 @@ const FormAddProducts = ()=>{
     })
     return (
         <>
-        <NavbarAdmin/>
+        <div className="container-grid" >
+            <div className="grid-sidebar">
+                <SideBar/>
+            </div>
+            <div className="grid-add-products">
+            <HeaderAdmin/>
         {/* <Spinner animation="border" /> */}
         <div className="container-add-products"></div>
         {/*encType="multipart/form-data" permite la carga de archivos, es fundamental para que
@@ -153,6 +159,9 @@ const FormAddProducts = ()=>{
                 loading ? <><Spinner as="span" animation="border" size="sm" role="status" aria-hidden='true' /> <span>Cargando...</span></> : 'Añadir producto'
             }</Button>
         </form>
+            </div>
+        </div>
+      
         </>
     )
 }

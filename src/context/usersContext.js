@@ -61,9 +61,8 @@ try {
     const addAddressUser = async(address)=>{
         try {
              const res= await addAddressUserRequest(address)
-             console.log(res.data)
         } catch (error) {
-            
+          
         }
     }
      /*Este useEffect se ejecuta en los componentes que consumen este contexto*/
@@ -122,7 +121,8 @@ try {
       setIncorrectPassword,
       editProfile,
       getUser,
-      addAddressUser
+      addAddressUser,
+    
     
         }}>
             {children}

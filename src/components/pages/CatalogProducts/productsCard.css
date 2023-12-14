@@ -4,6 +4,7 @@
     align-items: center;
     background-color: #ffffff;
     width: 300px;
+    border-radius: 10px;
 }
 .body-products img{
     width: 250px;

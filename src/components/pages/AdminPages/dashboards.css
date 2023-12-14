@@ -1,0 +1,17 @@
+.container-grid{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    height: 100vh;
+    gap: 20px;
+}
+.container-sidebar{
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    
+}
+.actions{
+    grid-column: span 9;
+    background-color: #f4f2ee;
+}

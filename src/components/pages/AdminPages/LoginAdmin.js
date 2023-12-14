@@ -5,7 +5,7 @@ import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { DASHBOARD } from "../../../config/routes/path"
 
- const FormAdmin = ()=>{
+ const LoginAdmin = ()=>{
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
     const msjError = useRef()
@@ -45,4 +45,4 @@ import { DASHBOARD } from "../../../config/routes/path"
     )
  }
 
- export default FormAdmin
+ export default LoginAdmin

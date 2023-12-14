@@ -1,9 +1,19 @@
-import NavbarAdmin from "./NavbarAdmin"
+import "./dashboards.css"
+import SideBar from "../../common/sideBar/SideBar"
+import HeaderAdmin from "./HeaderAdmin"
+// import NavbarAdmin from "./NavbarAdmin"
 
 const Dashboard = ()=>{
     return (
         <>
-        <NavbarAdmin/>
+        <div className="container-grid">
+             <div className="container-sidebar">
+            <SideBar/>
+             </div>
+             <div className="actions">
+            <HeaderAdmin/>
+             </div>
+        </div>
         
         </>
     )}

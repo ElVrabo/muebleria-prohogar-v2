@@ -1,3 +1,3 @@
 import axios from "./axios.js"
 
-export const paymentRequest = (product)=>axios.post('/payment',product)
+export const paymentRequest = (data)=>axios.post('/payment',data)

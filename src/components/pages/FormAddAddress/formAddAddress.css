@@ -1,11 +1,27 @@
 .container-form-address{
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 .form-address{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 400px;
+    width: 60%;
+}
+.inputs-form-address{
+    background-color: #f4f2ee;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #f4f2ee;
+}
+.btn-continue-buy{
+    color: #ffffff;
+    width: 80%;
 }

@@ -1,12 +1,13 @@
 import "./manageProducts.css"
 import { Button, Table } from "react-bootstrap"
-import NavbarAdmin from "./NavbarAdmin"
 import React,{ useContext } from "react"
 import { productsContext } from "../../../context/productsContext"
 import { useEffect } from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Alert } from "react-bootstrap"
+import HeaderAdmin from "./HeaderAdmin"
+import SideBar from "../../common/sideBar/SideBar.js"
 
 
 const ManageProducts = ()=>{
@@ -33,8 +34,13 @@ const ManageProducts = ()=>{
     
     return (
         <>
-        <NavbarAdmin/>
-        <h3 style={{textAlign:"center",marginTop:"50px"}}>Mi inventario de productos</h3>
+        <div className="container-grids">
+    <div div className="grid-sidebars">
+      <SideBar/>
+      </div>
+      <div className="grid-products">
+      <HeaderAdmin/>
+        <h3 style={{textAlign:"center",marginTop:"50px"}}>Buscar productos</h3>
         <div className="search-product">
           <input type="text" placeholder="Busca un producto en especifico" onChange={(e)=>{
             /*Todo lo que escribamos en el input se convertia a minusculas*/ 
@@ -87,6 +93,10 @@ const ManageProducts = ()=>{
         
       </tbody>
     </Table>
+      </div>
+    
+        </div>
+        
         </>
     )
 }   
