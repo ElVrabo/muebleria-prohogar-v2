@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { addFavoriteProductsRequest, addProductsOnSaleRequest, addProductsRequest, deleteFavoriteProductsRequest, deleteProductsOnSaleRequest, deleteProductsRequest, editProductsOnSaleRequest, filterProductsCategoryRequest, getFavoriteProductsRequest, getProductOnSaleRequest, getProductsOnSaleRequest, getProductsRequest, searchProductsOnSaleRequest } from "../api/products";
+import { addFavoriteProductsRequest, addProductsOnSaleRequest, addProductsRequest, deleteFavoriteProductsRequest, deleteProductsOnSaleRequest, deleteProductsRequest, editProductsOnSaleRequest, filterProductsCatalogRequest, getFavoriteProductsRequest, getProductOnSaleRequest, getProductsOnSaleRequest, getProductsRequest, searchProductsOnSaleRequest } from "../api/products";
 
 
 export const productsContext = createContext()
@@ -11,7 +11,7 @@ export const ProductsContextProvider = ({children})=>{
     const [listFavoriteProducts,setListFavoriteProducts] = useState([])
     const [totalPrice,setTotalPrice] = useState()
     const [productNotFound,setProductNotFound] = useState()
-    const [categoryNotFound,setCategoryNotFound] = useState()
+    const [alertProductNotFound,setAlertProductNotFound] = useState()
 
     const getProducts = async ()=>{
   try {
@@ -118,13 +118,13 @@ try {
         setProductNotFound(error.response.data.error)
       }
     }
-    const filterProductsCategory = async(data) =>{
+    const filterProductsCatalog = async(data) =>{
       try {
-        const res = await filterProductsCategoryRequest(data)
+        const res = await filterProductsCatalogRequest(data)
         setListProductsOnSale(res.data)
-        setCategoryNotFound(false)
+        setAlertProductNotFound(false)
       } catch (error) {
-        setCategoryNotFound(error.response.data.error)
+        setAlertProductNotFound(error.response.data.error)
       }
     }
     
@@ -153,11 +153,11 @@ return (
         editProductsOnSale,
         filterProductsName,
         getProductOnSale,
-        filterProductsCategory,
+        filterProductsCatalog,
         productNotFound,
         setProductNotFound,
-        categoryNotFound,
-        setCategoryNotFound,
+        alertProductNotFound,
+        setAlertProductNotFound
         // numberProducts
         
     }}>

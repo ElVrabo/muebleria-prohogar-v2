@@ -12,7 +12,7 @@ import FavoriteProducts from '../../components/pages/profile/FavoriteProducts';
 import ManageProducts from '../../components/pages/AdminPages/ManageProducts.js';
 import FormAddProducts from '../../components/pages/AdminPages/FormAddProducts.js';
 import ProductsDetailsPages from '../../components/pages/CatalogProducts/ProductsDetailsPages.tsx';
-import CatalogProductsPages from '../../components/pages/CatalogProducts/CatalogProductsPages.tsx';
+import CatalogProductsPages from '../../components/pages/CatalogProducts/CatalogProductsPages.js';
 import CartPages from '../../components/pages/ProductsCart/CartPages.js';
 import EditProfilePages from '../../components/pages/profile/EditProfilePages';
 import ContactPages from '../../components/pages/Contact/ContactPages.tsx';

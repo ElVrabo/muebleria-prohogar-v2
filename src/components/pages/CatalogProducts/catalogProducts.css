@@ -1,3 +1,12 @@
+.search-products{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+.search-products input{
+    width: 300px;
+}
 .container-products{
     display: flex;
     justify-content: center;

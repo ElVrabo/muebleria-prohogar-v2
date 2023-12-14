@@ -12,4 +12,4 @@ export const addProductsOnSaleRequest = (data)=>axios.post('/productsOnSale', da
 export const deleteProductsOnSaleRequest = (id)=>axios.delete(`/productsOnSale/${id}`)
 export const searchProductsOnSaleRequest = (product)=>axios.get(`/filterProducts?nameProduct=${product}`)
 export const editProductsOnSaleRequest =(id,product) => axios.put(`/editProductOnSale/${id}`,product)
-export const filterProductsCategoryRequest = (product)=>axios.get(`/filterProductsCategory?categoryProduct=${product}`)
+export const filterProductsCatalogRequest = (product)=>axios.get(`/filterProductsCategory?categoryProduct=${product}`)

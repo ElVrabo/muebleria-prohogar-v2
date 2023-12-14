@@ -4,20 +4,9 @@ import { useNavigate } from "react-router-dom"
 // import { paymentRequest } from "../../../api/payment"
 import React from "react"
 
-interface ProductCardProps{
-    product:{
-        _id:string,
-        image:string,
-        name:string,
-        description:string,
-        price:number,
-        date: Date,
-        stock:number
-    },
-    key:string
-}
 
-const ProductsCard = ({product,key}:ProductCardProps) =>{
+
+const ProductsCard = ({product,key}) =>{
     const navigate = useNavigate()
     return (
         <>
