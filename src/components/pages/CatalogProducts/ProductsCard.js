@@ -1,23 +1,22 @@
 import "./productsCard.css"
-import { Button } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 // import { paymentRequest } from "../../../api/payment"
 import React from "react"
 
 
 
 const ProductsCard = ({product,key}) =>{
-    const navigate = useNavigate()
     return (
         <>
+        <Link  to={`/catalog/${product._id}`} style={{textDecoration:"none",color:"black"}}>
         <div key={key} className="body-products" >
-            <img src={`http://localhost:4000/api/${product.image}`} />
-            <h2>{product.name}</h2>
+            <img src={`http://localhost:4000/api/${product.image}`} alt="imagen del producto" />
+            <h2>{product.name[0].toUpperCase() + product.name.slice(1).toLowerCase()}</h2>
             <p>{product.description}</p>
-            <h2>${product.price}</h2>
-            <p>Este producto se agrego el: {new Date(product.date).toLocaleDateString()}</p>
-            <p style={{color:product.stock ===1 ? 'red' : 'black'}} >{product.stock===1 ? 'Solo queda un producto disponible':`Quedan ${product.stock} disponibles`}</p>
-            <div className="btns-card-products" >
+            <h4>${product.price}</h4>
+            {/* <p>Este producto se agrego el: {new Date(product.date).toLocaleDateString()}</p> */}
+            {/* <p style={{color:product.stock ===1 ? 'red' : 'black'}} >{product.stock===1 ? 'Solo queda un producto disponible':`Quedan ${product.stock} disponibles`}</p> */}
+            {/* <div className="btns-card-products" >
             <Button variant="warning" style={{color:"#ffffff", width:"250px"}} onClick={()=>{
                     navigate(`/formAddAddress/${product._id}`)
                     //  paymentRequest(product).then((res)=>window.location.href=res.data.response.body.init_point)
@@ -25,8 +24,9 @@ const ProductsCard = ({product,key}) =>{
                 <Button variant="light" style={{width:"250px",border:"2px solid orange"}}  onClick={()=>{
                     navigate(`/catalog/${product._id}`)
                 }} >Ver detalles</Button>
-            </div>
+            </div> */}
         </div>
+        </Link>
         </>
     )
 }

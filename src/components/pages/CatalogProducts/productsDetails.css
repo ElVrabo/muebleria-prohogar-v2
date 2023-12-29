@@ -35,6 +35,28 @@
     width: 400px;
     border: 2px solid orange;
 }
+.title-review{
+  text-align: center;
+  margin-top: 20px;
+}
+.container-form-review{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.form-review{
+  display: flex;
+  gap: 10px;
+}
+.form-review input{
+  width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+.insert-review{
+  color: #ffffff;
+}
 @media only screen and (max-width:600px){
   .body-details-product{
     display: flex;

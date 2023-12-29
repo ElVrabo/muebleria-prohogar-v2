@@ -1,6 +1,8 @@
-import { createContext, useEffect, useState } from "react";
-import { addFavoriteProductsRequest, addProductsOnSaleRequest, addProductsRequest, deleteFavoriteProductsRequest, deleteProductsOnSaleRequest, deleteProductsRequest, editProductsOnSaleRequest, filterProductsCatalogRequest, getFavoriteProductsRequest, getProductOnSaleRequest, getProductsOnSaleRequest, getProductsRequest, searchProductsOnSaleRequest } from "../api/products";
-
+import { createContext, useState } from "react";
+import { addFavoriteProductsRequest, addProductsOnSaleRequest, addProductsRequest, createReviewRequest, deleteFavoriteProductsRequest, deleteProductsOnSaleRequest, deleteProductsRequest, editProductsOnSaleRequest, filterProductsCatalogRequest, filterProductsNameRequest, getFavoriteProductsRequest, getProductOnSaleRequest, getProductsOnSaleRequest, getProductsRequest, searchProductsOnSaleRequest } from "../api/products";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal)
 
 export const productsContext = createContext()
 
@@ -10,8 +12,7 @@ export const ProductsContextProvider = ({children})=>{
     const [listProductsOnSale,setListProductsOnSale] = useState([])
     const [listFavoriteProducts,setListFavoriteProducts] = useState([])
     const [totalPrice,setTotalPrice] = useState()
-    const [productNotFound,setProductNotFound] = useState()
-    const [alertProductNotFound,setAlertProductNotFound] = useState()
+   
 
     const getProducts = async ()=>{
   try {
@@ -25,7 +26,7 @@ export const ProductsContextProvider = ({children})=>{
     const addProducts = async(data)=>{
       try {
        const res = await addProductsRequest(data)
-     
+      
       } catch (error) {
       
       }
@@ -71,6 +72,7 @@ export const ProductsContextProvider = ({children})=>{
   try {
     const res = await getProductsOnSaleRequest()
     setListProductsOnSale(res.data)
+    
   } catch (error) {
     
   }
@@ -87,16 +89,28 @@ export const ProductsContextProvider = ({children})=>{
     const addProductsOnSale = async(data)=>{
      try {
       const res = await addProductsOnSaleRequest(data)
+      MySwal.fire({
+          title:res.data.message,
+          icon:"success"
+      })
      } catch (error) {
+    
       
      }
+    //  console.log(error)
     }
     const deleteProductsOnSale = async(id)=>{
 try {
   const res = await deleteProductsOnSaleRequest(id)
+   
   if(res.status === 200){
     setListProductsOnSale(listProductsOnSale.filter((product=>product._id !== id)))
+    MySwal.fire({
+      title:res.data.message,
+      icon:"success"
+    })
   }
+ 
 } catch (error) {
   
 }
@@ -104,29 +118,34 @@ try {
     const editProductsOnSale = async (id,product)=>{
       try {
          const res = await editProductsOnSaleRequest(id,product)
-        
+         MySwal.fire({
+          title:res.data.message,
+          icon:"success"
+         })
       } catch (error) {
       
       }
     }
     const filterProductsName = async(value) =>{
       try {
-        const res = await searchProductsOnSaleRequest(value)
+        if(!value){
+          MySwal.fire({
+            title:"Escribe el producto que deseas buscar",
+            icon:"error"
+          })
+        }
+        const res = await filterProductsNameRequest(value)
         setListProductsOnSale(res.data)
-         setProductNotFound(false)
+        
       } catch (error) {
-        setProductNotFound(error.response.data.error)
+        MySwal.fire({
+          title:error.response.data.error,
+          icon:'error'
+        })
+      
       }
     }
-    const filterProductsCatalog = async(data) =>{
-      try {
-        const res = await filterProductsCatalogRequest(data)
-        setListProductsOnSale(res.data)
-        setAlertProductNotFound(false)
-      } catch (error) {
-        setAlertProductNotFound(error.response.data.error)
-      }
-    }
+
     
     const totalPriceProducts = ()=>{
         setTotalPrice(listProductsCart.reduce((total,product)=>{
@@ -153,11 +172,7 @@ return (
         editProductsOnSale,
         filterProductsName,
         getProductOnSale,
-        filterProductsCatalog,
-        productNotFound,
-        setProductNotFound,
-        alertProductNotFound,
-        setAlertProductNotFound
+        
         // numberProducts
         
     }}>

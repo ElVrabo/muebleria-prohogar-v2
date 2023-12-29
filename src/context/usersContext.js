@@ -1,6 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { addAddressUserRequest, editProfileRequest, getUserRequest, loginUserRequest, registerUserRequest, verifyTokenRequest } from "../api/auth";
+import { addAddressUserRequest, changePasswordRequest, editProfileRequest, getUserRequest, loginUserRequest, registerUserRequest, verifyTokenRequest } from "../api/auth";
 import Cookies from "js-cookie";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal)
 
 export const userContext = createContext()
 
@@ -46,8 +49,14 @@ try {
     const editProfile = async(id,user)=>{
         try {
             const res = await editProfileRequest(id,user)
+            if(res.status === 204){
+            MySwal.fire({
+                title:"Informacion guardada con exito",
+                icon:"success"
+            })
+            }
         } catch (error) {
-            
+    console.log('ocurrio el error', error.response.data.error)
         }
     }
     const getUser = async(id)=>{
@@ -63,6 +72,20 @@ try {
              const res= await addAddressUserRequest(address)
         } catch (error) {
           
+        }
+    }
+    const changePassword = async(data)=>{
+        try {
+            const res = await changePasswordRequest(data)
+            MySwal.fire({
+                title:res.data.message,
+                icon:"success"
+            })
+        } catch (error) {
+            MySwal.fire({
+                title:error.response.data.error,
+                icon:"error"
+            })
         }
     }
      /*Este useEffect se ejecuta en los componentes que consumen este contexto*/
@@ -122,7 +145,7 @@ try {
       editProfile,
       getUser,
       addAddressUser,
-    
+      changePassword
     
         }}>
             {children}

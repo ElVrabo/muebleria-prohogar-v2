@@ -9,7 +9,7 @@ import { productsContext } from "../../../context/productsContext"
 const ProductsCard = ({product,key,currentPriceProduct})=>{
 
     const [productUnity,setProductUnity] = useState(1)
-    const {getProducts,deleteProduct} = useContext(productsContext)
+    const {deleteProduct,getProducts} = useContext(productsContext)
 
    
 
@@ -29,8 +29,8 @@ const ProductsCard = ({product,key,currentPriceProduct})=>{
                 <h2 >${currentPriceProduct(productUnity,product.price)}</h2>
             </div>
             <div className="btn-delete-product-cart">
-                <Button variant="warning" onClick={()=>{
-                    deleteProduct(product._id)
+                <Button variant="warning" onClick={async()=>{
+                    await deleteProduct(product._id)
                     getProducts()
                 }} >Eliminar</Button>
             </div>

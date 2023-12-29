@@ -1,0 +1,32 @@
+.container-grid{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    height: 100vh;
+    gap: 20px;
+}
+.grid-sidebar{
+    grid-column: span 3;
+}
+.grid-table-providers{
+grid-column: span 9;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 50px;
+}
+.container-search-provider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-search-provider{
+    display: flex;
+    gap: 5px;
+}
+.input-search-provider input{
+    background-color: #ffffff;
+    border: 2px solid orange;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+}

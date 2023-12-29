@@ -31,7 +31,7 @@ const FormAddAdress = ()=>{
             await addAddressUser(value)
             /*Se envia al servidor el producto que se comprara y la direccion,
              que esta es el formuario, sus valores que tiene actualmente*/
-            await paymentRequest(productPay).then((res)=>  window.location.href=res.data.response.body.init_point).catch((error)=>console.log(error))
+            await paymentRequest(productPay,value).then((res)=>  window.location.href=res.data.init_point)
              
     })
 

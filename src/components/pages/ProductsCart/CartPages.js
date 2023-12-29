@@ -1,4 +1,4 @@
-import React,{ useCallback, useContext, useEffect} from "react"
+import React,{ useCallback, useContext, useEffect, useState} from "react"
 import { productsContext } from "../../../context/productsContext.js"
 import ProductsCard from "./ProductsCard.js"
 import { Button } from "react-bootstrap"
@@ -6,9 +6,15 @@ import { Button } from "react-bootstrap"
 
 
 const CartPages = ()=>{
+  const [isLoading,setIsLoading] = useState()
     const {getProducts,listProductsCart,totalPrice,totalPriceProducts} = useContext(productsContext)
     useEffect(()=>{
-        getProducts()
+      const loadProductsCart = async()=>{
+        setIsLoading(true)
+        await getProducts()
+        setIsLoading(false)
+    }
+    loadProductsCart()
     },[])
 
    useEffect(()=>{
@@ -19,7 +25,7 @@ const CartPages = ()=>{
            return unityProduct * priceProduct  
     }
 
-    if(listProductsCart.length ===0){
+    if(!isLoading && listProductsCart.length ===0){
     return <h1 style={{textAlign:"center"}} >No hay productos en el carrito</h1>
     }
 

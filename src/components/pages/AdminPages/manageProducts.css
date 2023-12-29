@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: repeat(12,1fr);
     height: 100vh;
-    gap: 10px;
+    gap: 20px;
 }
 .grid-sidebars{
-    grid-column: span 2;
-    background-color: orange;
+    grid-column: span 3;
+    background-color: #ffffff;
 }
 .grid-products{
-    grid-column: span 10;
+    grid-column: span 9;
     
 }
 .search-product{
@@ -29,9 +29,4 @@
     width: 100px;
     height: 35px;
     color: #fff;
-}
-.product-not-found{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
 }

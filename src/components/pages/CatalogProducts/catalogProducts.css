@@ -6,6 +6,9 @@
 }
 .search-products input{
     width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
 }
 .container-products{
     display: flex;

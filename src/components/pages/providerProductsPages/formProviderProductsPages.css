@@ -1,0 +1,79 @@
+.container-grid{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    height: 100vh;
+
+}
+.grid-sidebar{
+    grid-column: span 3;
+    background-color: #ffffff;
+}
+.grid-form-add-provider{
+    grid-column: span 9;
+    background-color: #f4f2ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.form-provider-products{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    align-items: center;
+    border-radius: 10px;
+   width: 80%;
+}
+
+.inputs-form-provider-products {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 15px;
+}
+.inputs-form-provider-products input{
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #f4f2ee;
+    background-color: #f4f2ee;
+}
+.container-name-razon-social{
+    display: flex;
+    gap: 10px;
+}
+.provider-name{
+    display: flex;
+    flex-direction: column;
+}
+.razon-social{
+    display: flex;
+    flex-direction: column;
+}
+.container-address-number{
+    display: flex;
+    gap: 10px;
+}
+.address{
+    display: flex;
+    flex-direction: column;
+}
+.number{
+    display: flex;
+    flex-direction: column;
+}
+.container-rfc-gmail{
+    display: flex;
+    gap: 10px;
+}
+.rfc{
+    display: flex;
+    flex-direction: column;
+}
+.gmail{
+    display: flex;
+    flex-direction: column;
+}
+.btn-add-provider{
+    display: flex;
+    justify-content: center;
+}

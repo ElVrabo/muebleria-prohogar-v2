@@ -1,0 +1,43 @@
+.container-grid{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
+.container-sidebar{
+    grid-column: span 3;
+}
+.container-form-employees{
+    grid-column: span 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-employees{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 700px;
+    height: auto;
+    gap: 10px;
+}
+.container-labels{
+    margin-top: 10px;
+}
+.container-inputs{
+    display: flex;
+    flex-direction: column;
+}
+.container-inputs input{
+    width: 500px;
+    background-color: #f4f2ee;
+    border: 1px solid #f4f2ee;
+    border-radius: 5px;
+}
+.btn-send-employee{
+    color: #ffffff;
+}
+.btn-send-employee:hover{
+    color:#ffffff
+}

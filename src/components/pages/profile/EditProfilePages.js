@@ -2,10 +2,13 @@ import "./editProfilePages.css"
 import { useContext, useEffect, useRef, useState } from "react"
 import { Button } from "react-bootstrap"
 import { useForm } from "react-hook-form"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams,Link } from "react-router-dom"
 import { userContext } from "../../../context/usersContext"
-import { PROFILE } from "../../../config/routes/path"
+import { CHANGEPASSWORDPAGES, PROFILE } from "../../../config/routes/path"
 import iconProfile from "../../../assets/images/Recurso 12.png"
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal)
 
 const EditProfilePages = ()=>{
     const [avatar,setAvatar] = useState()
@@ -20,6 +23,7 @@ const EditProfilePages = ()=>{
           await getUser(userID)
          setValue('email',userData.email)
          setValue('username',userData.username)
+        
         }
      }
      loadUser()
@@ -32,6 +36,7 @@ const EditProfilePages = ()=>{
        formData.append('avatar',avatar)
        formData.append('username',value.username)
        formData.append('email',value.email)
+       formData.append('password',value.password)
         await editProfile(userID,formData)
         navigate(PROFILE)
     })
@@ -67,6 +72,7 @@ const EditProfilePages = ()=>{
               </div>
                 <input type="text" {...register('username')} />
                 <input type="text" {...register('email')} />
+                <Link style={{textDecoration:"none", color:"black"}} to={CHANGEPASSWORDPAGES} >¿Deseas cambiar tu contraseña?</Link>
                 <Button variant="warning" type="submit" >Aceptar</Button>  
             </form>
           </div>
