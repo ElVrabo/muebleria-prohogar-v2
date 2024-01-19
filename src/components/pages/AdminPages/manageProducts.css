@@ -22,7 +22,8 @@
 .search-product input{
     width: 300px;
     text-align: center;
-    border: 2px solid orange;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
     border-radius: 5px;
 }
 .btn-search-product{

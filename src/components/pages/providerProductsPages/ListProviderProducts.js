@@ -3,10 +3,10 @@ import { useContext, useEffect, useRef, useState } from "react"
 import SideBar from "../../common/sideBar/SideBar"
 import { providerProductsContext } from "../../../context/providerProductsContext"
 import { Table,Button } from "react-bootstrap"
-import Swal from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
 import { FORMPROVIDERPRODUCTSPAGES } from "../../../config/routes/path"
 import { useNavigate } from "react-router-dom"
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
 const MySwal = withReactContent(Swal)
 
 const ListProviderProducts = ()=>{
@@ -27,11 +27,11 @@ const ListProviderProducts = ()=>{
     },[])
 
     useEffect(()=>{
-        if(!isLoading&&listProviderProducts.length === 0){
+        if(!isLoading && listProviderProducts.length === 0){
             showAlert()
         }
        
-    },[isLoading])
+    },[isLoading,listProviderProducts])
 
    const showAlert=async()=>{
     const result = await MySwal.fire({

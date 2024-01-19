@@ -1,7 +1,7 @@
 import "../../index.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from "react-router-dom";
-import { CATALOG, CATALOGID, CHANGEPASSWORDPAGES, CONTACT, CREATEUSERSPAGES, DASHBOARD, EDITPROFILE, EMPLOYEESPAGES, FAVORITEPRODUCTS, FORMADDADDRESS, FORMADDPRODUCTS, FORMADMIN, FORMLOGIN, FORMPROVIDERPRODUCTSPAGES, FORMREGISTER, HOME, LISTPROVIDERPRODUCTS, LOGIN, LOGINADMIN, MANAGEPRODUCTS, PROFILE, REGISTER, SHOPPINGCART } from "./path";
+import { CATALOG, CATALOGID, CHANGEPASSWORDPAGES, CONTACT, CREATEEMPLOYEESPAGES, CREATEEMPLOYEESSPAGES, DASHBOARD, EDITEMPLOYEESPAGES, EDITPROFILE, EMPLOYEESPAGES, FAVORITEPRODUCTS, FORMADDADDRESS, FORMADDPRODUCTS, FORMADMIN, FORMLOGIN, FORMPROVIDERPRODUCTSPAGES, FORMREGISTER, HOME, LISTPROVIDERPRODUCTS, LOGIN, LOGINADMIN, MANAGEPRODUCTS, PROFILE, REGISTER, SHOPPINGCART } from "./path";
 import { Home } from "../../components/pages/Home/Home";
 import { UserContextProvider } from '../../context/usersContext';
 import { ProductsContextProvider } from '../../context/productsContext';
@@ -47,8 +47,9 @@ function App() {
       <Route path='/manageProducts/:id' element={<FormAddProducts/>} />
       <Route path={FORMPROVIDERPRODUCTSPAGES} element={<FormProviderProductsPages/>} />
       <Route path={LISTPROVIDERPRODUCTS} element={<ListProviderProducts/>} />
-      <Route path={CREATEUSERSPAGES} element={<CreateEmployeesPages/>} />
       <Route path={EMPLOYEESPAGES} element={<EmployeesPage/>} />
+      <Route path={CREATEEMPLOYEESPAGES} element={<CreateEmployeesPages/>} />
+      <Route path={EDITEMPLOYEESPAGES} element={<CreateEmployeesPages/>} />
       {/*Dentro de ProtectedRoutes se ponen las rutas que necesitan que el usuario este
       autenticado para que puedan acceder a ellas*/ }
       <Route element={<ProtectedRoutes/>}>

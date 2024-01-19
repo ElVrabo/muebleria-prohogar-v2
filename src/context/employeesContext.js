@@ -1,6 +1,6 @@
 
 import { createContext,useState } from "react";
-import { createEmployeeRequest, getEmployeesRequest } from "../api/employees";
+import { createEmployeeRequest, deleteEmployeesRequest, editEmployeesRequest, getEmployeesRequest } from "../api/employees";
 
 
 export const employeesContext = createContext()
@@ -17,11 +17,27 @@ export const EmployeesContextProvider = ({children})=>{
             console.log(response.data.message)
         }).catch((error)=>console.log(error.response.data.error))
     }
+    const deleteEmployees = (id)=>{
+        deleteEmployeesRequest(id).then((response)=>{
+            if(response.status === 201){
+                setListEmployees(listEmployees.filter((employee)=>{
+                  return employee._id !== id
+                }))
+            }
+        }).catch((error)=>console.log(error.response.data.error))
+    }
+    const editEmployees = (id,data)=>{
+      editEmployeesRequest(id,data).then((response)=>{
+        console.log(response.data.message)
+      }).then((error)=>console.log(error))
+    }
     return (
         <employeesContext.Provider value={{
          listEmployees,
          getEmployees,
-         createEmployees
+         createEmployees,
+         deleteEmployees,
+         editEmployees
         }} >
            {children}
         </employeesContext.Provider>

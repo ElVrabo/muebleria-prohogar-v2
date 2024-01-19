@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./sideBar.css"
 import { Link } from "react-router-dom"
-import { CREATEUSERSPAGES, EMPLOYEESPAGES, FORMADDPRODUCTS, FORMPROVIDERPRODUCTSPAGES, LISTPROVIDERPRODUCTS, MANAGEPRODUCTS } from "../../../config/routes/path"
+import { CREATEEMPLOYEESPAGES, CREATEUSERSPAGES, EMPLOYEESPAGES, FORMADDPRODUCTS, FORMPROVIDERPRODUCTSPAGES, LISTPROVIDERPRODUCTS, MANAGEPRODUCTS } from "../../../config/routes/path"
 
 
 const SideBar = ()=>{
@@ -37,7 +37,7 @@ const SideBar = ()=>{
             }} >Empleados</Link>
             {subMenuOpen.employeesOpen && (
                 <div className="submenu" >
-                    <Link className="submenu-links" to={CREATEUSERSPAGES} >Agregar</Link>
+                    <Link className="submenu-links" to={CREATEEMPLOYEESPAGES} >Agregar</Link>
                     <Link className="submenu-links" to={EMPLOYEESPAGES} >Ver empleados</Link>
                 </div>
             )}

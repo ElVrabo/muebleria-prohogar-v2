@@ -25,8 +25,8 @@ const CatalogProductsPages = ()=>{
         <Navigation />
         <div className="search-products" >
             <input type="text" onChange={handleInputProduct} />
-            <Button variant="warning" style={{color:"#ffffff"}} onClick={()=>{
-                filterProductsName(nameProduct)
+            <Button variant="warning" style={{color:"#ffffff"}} onClick={async()=>{
+                await filterProductsName(nameProduct)
             }} >Buscar</Button>
         </div>
           <div className="container-products">

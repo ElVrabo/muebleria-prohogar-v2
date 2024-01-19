@@ -9,3 +9,31 @@
     grid-column: span 9;
     margin-top: 30px;
 }
+.container-search-employees{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.search-employees{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.container-search-employees input{
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    text-align: center;
+}
+.container-search-employees Button{
+    color: #ffffff;
+}
+.icon-delete:hover{
+    cursor: pointer;
+}
+.icon-edit:hover{
+    cursor:pointer
+}

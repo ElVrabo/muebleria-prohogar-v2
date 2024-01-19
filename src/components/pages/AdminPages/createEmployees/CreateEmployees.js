@@ -3,6 +3,7 @@ import React, { useState,FormEvent, useContext } from "react"
 import { Button } from "react-bootstrap"
 import { employeesContext } from "../../../../context/employeesContext"
 import SideBar from "../../../common/sideBar/SideBar"
+import { useParams } from "react-router-dom"
 
 
 const CreateEmployeesPages = ()=>{
@@ -12,16 +13,27 @@ const CreateEmployeesPages = ()=>{
         phone:null,
         rol:null
     })
-    const {createEmployees} = useContext(employeesContext)
-    const submitEmployee=(e)=>{
+    const {createEmployees,editEmployees} = useContext(employeesContext)
+    const {id} = useParams()
+    const submitEmployee= async(e)=>{
         e.preventDefault()
+        if(id){
+            const employee = {
+              username:employeeData.username,
+              age:employeeData.age,
+              phone:employeeData.phone,
+              rol:employeeData.rol
+            }
+        await editEmployees(id,employee)
+            return 
+        }
         const employee={
          username:employeeData.username,
          age:employeeData.age,
          phone:employeeData.phone,
          rol:employeeData.rol
         }
-        createEmployees(employee)
+        await createEmployees(employee)
     }
     return (
         <>

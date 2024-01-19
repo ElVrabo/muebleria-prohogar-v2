@@ -9,6 +9,8 @@ import SideBar from "../../common/sideBar/SideBar.js"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import { FORMADDPRODUCTS } from "../../../config/routes/path.js"
+import iconDelete from "../../../assets/icons/borrar.png"
+import iconEdit from "../../../assets/icons/editar.png"
 const MySwal = withReactContent(Swal)
 
 const ManageProducts = ()=>{
@@ -91,13 +93,19 @@ return (
         <td>{product.stock}</td>
         <td>{product.category}</td>
         <td>{new Date(product.date).toLocaleDateString()}</td>
-        <td style={{display:"flex",gap:"5px"}}>
-            <Button variant="light" style={{border:"2px solid orange"}} onClick={async()=>{
+        <td style={{display:"flex",gap:"8px"}}>
+          <img className="icon-delete" src={iconDelete} alt="icono de eliminar" onClick={async()=>{
             await deleteProductsOnSale(product._id)
-            }}>Eliminar</Button>
-            <Button style={{color:"#ffffff"}} variant="warning" onClick={()=>{
+          }} />
+            {/* <Button variant="light" style={{border:"2px solid orange"}} onClick={async()=>{
+            await deleteProductsOnSale(product._id)
+            }}>Eliminar</Button> */}
+            <img className="icon-edit" src={iconEdit} alt="icono de editar" onClick={()=>{
+              navigate(`/manageProducts/${product._id}`)
+            }} />
+            {/* <Button style={{color:"#ffffff"}} variant="warning" onClick={()=>{
             navigate(`/manageProducts/${product._id}`)
-        }}>Editar</Button>
+        }}>Editar</Button> */}
         </td>
        
         </tr>

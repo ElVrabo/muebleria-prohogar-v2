@@ -133,6 +133,7 @@ try {
             title:"Escribe el producto que deseas buscar",
             icon:"error"
           })
+          return 
         }
         const res = await filterProductsNameRequest(value)
         setListProductsOnSale(res.data)
