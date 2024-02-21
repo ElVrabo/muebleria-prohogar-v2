@@ -2,8 +2,10 @@ import { useState } from "react"
 import "./sideBar.css"
 import { Link } from "react-router-dom"
 import { CREATEEMPLOYEESPAGES, CREATEUSERSPAGES, EMPLOYEESPAGES, FORMADDPRODUCTS, FORMPROVIDERPRODUCTSPAGES, LISTPROVIDERPRODUCTS, MANAGEPRODUCTS } from "../../../config/routes/path"
-
-
+import iconEmployees from "../../../assets/icons/empleados.png"
+import iconProviders from "../../../assets/icons/paquetes.png"
+import iconProducts from "../../../assets/icons/agregar-producto.png"
+import iconSignOut from "../../../assets/icons/cerrar-sesion.png"
 const SideBar = ()=>{
     const [subMenuOpen,setSubMenuOpen] = useState({
         inventarioOpen:false,
@@ -12,37 +14,52 @@ const SideBar = ()=>{
     })
     return (
         <>
+        <div className="title">
+            <h2>Prohogar</h2>
+            </div>
          <div className="sidebar">
-            <h2 style={{ color:"black"}}>Hola admin</h2>
-            <Link className="sidebar-links" onClick={()=>{
+            <div className="container-icon-products" >
+            <img className="icon-products"src={iconProducts} onClick={()=>{
                 setSubMenuOpen({...subMenuOpen,inventarioOpen:!subMenuOpen.inventarioOpen})
-            }}>Productos</Link>
+            }}/>
+            <h6>Productos</h6>
+            </div>
+            
             {subMenuOpen.inventarioOpen && (
                 <div className="submenu">
                     <Link to={FORMADDPRODUCTS} className="submenu-links">Agregar</Link>
                     <Link to={MANAGEPRODUCTS} className="submenu-links" >Ver inventario</Link>
                 </div>
             )}
-            <Link  className="sidebar-links" onClick={()=>{
+            <div className="container-providers" >
+            <img  className="icon-providers" src={iconProviders}  onClick={()=>{
                 setSubMenuOpen({...subMenuOpen,providerOpen:!subMenuOpen.providerOpen})
-            }}>Proveedores</Link>
+            }}/>
+            <h6>Proveedores</h6>
+            </div>
+            
             {subMenuOpen.providerOpen && (
                 <div className="submenu">
              <Link className="submenu-links" to={FORMPROVIDERPRODUCTSPAGES}>Agregar</Link>
              <Link className="submenu-links" to={LISTPROVIDERPRODUCTS} >Ver proveedores</Link>
                 </div>
             )}
-            <Link className="sidebar-links" onClick={()=>{
+            <div className="container-icon-employees" >
+            <img className="icon-employees" src={iconEmployees} onClick={()=>{
                 setSubMenuOpen({...subMenuOpen,employeesOpen:!subMenuOpen.employeesOpen})
-            }} >Empleados</Link>
+            }} />
+            <h6>Empleados</h6>
+            </div>
+            
             {subMenuOpen.employeesOpen && (
                 <div className="submenu" >
                     <Link className="submenu-links" to={CREATEEMPLOYEESPAGES} >Agregar</Link>
                     <Link className="submenu-links" to={EMPLOYEESPAGES} >Ver empleados</Link>
                 </div>
             )}
-           <div className="logout">
-           <Link className="sidebar-links" >Cerrar sesion</Link>
+           <div className="container-logout">
+           <img className="icon-logout" src={iconSignOut} />
+           <h6>Cerrar sesion</h6>
            </div>
          </div>
         </>

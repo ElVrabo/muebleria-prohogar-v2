@@ -1,11 +1,11 @@
 import "./createEmployees.css"
-import React, { useState,FormEvent, useContext } from "react"
+import React, { useState,FormEvent, useContext, useRef } from "react"
 import { Button } from "react-bootstrap"
 import { employeesContext } from "../../../../context/employeesContext"
 import SideBar from "../../../common/sideBar/SideBar"
-import { useParams } from "react-router-dom"
-
-
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
+const MySwal = withReactContent(Swal)
 const CreateEmployeesPages = ()=>{
     const [employeeData,setEmployeeData] = useState({
         username:null,
@@ -13,19 +13,19 @@ const CreateEmployeesPages = ()=>{
         phone:null,
         rol:null
     })
-    const {createEmployees,editEmployees} = useContext(employeesContext)
-    const {id} = useParams()
-    const submitEmployee= async(e)=>{
+    const {createEmployees} = useContext(employeesContext)
+    const inputUser = useRef()
+    const inputAge = useRef()
+    const inputPhone = useRef()
+    const inputRol = useRef()
+    async function submitEmployee(e){
         e.preventDefault()
-        if(id){
-            const employee = {
-              username:employeeData.username,
-              age:employeeData.age,
-              phone:employeeData.phone,
-              rol:employeeData.rol
-            }
-        await editEmployees(id,employee)
-            return 
+        if(!employeeData.username || !employeeData.age || !employeeData.phone || !employeeData.rol){
+        MySwal.fire({
+            title:"Rellena todos los campos",
+            icon:"error"
+        })
+        return 
         }
         const employee={
          username:employeeData.username,
@@ -34,6 +34,18 @@ const CreateEmployeesPages = ()=>{
          rol:employeeData.rol
         }
         await createEmployees(employee)
+        MySwal.fire({
+            title:"Se agrego correctamente el empleado",
+            icon:"success"
+        })
+        setEmployeeData({...employeeData, username:null})
+        setEmployeeData({...employeeData, age:null})
+        setEmployeeData({...employeeData, phone:null})
+        setEmployeeData({...employeeData, rol:null})
+        inputUser.current.value = ""
+        inputAge.current.value = ""
+        inputPhone.current.value = ""
+        inputRol.current.value = ""
     }
     return (
         <>
@@ -46,26 +58,26 @@ const CreateEmployeesPages = ()=>{
             <div className="container-labels">
             <div className="container-inputs" >
             <label>Nombre del empleado</label>
-            <input type="text" onChange={(e)=>{
+            <input ref={inputUser} type="text" onChange={(e)=>{
                 setEmployeeData({...employeeData,username:e.target.value})
             }} 
              />
             </div  >
              <div className="container-inputs">
              <label>edad</label>
-            <input type="text" onChange={(e)=>{
+            <input ref={inputAge} type="text" onChange={(e)=>{
                 setEmployeeData({...employeeData,age:e.target.value})
             }}/>
              </div>
             <div className="container-inputs">
             <label>Telefono</label>
-            <input type="text" onChange={(e)=>{
+            <input ref={inputPhone} type="text" onChange={(e)=>{
                 setEmployeeData({...employeeData,phone:e.target.value})
             }} />
             </div>
             <div className="container-inputs">
             <label >Cargo que ocupa</label>
-            <input type="text" onChange={(e)=>{
+            <input ref={inputRol} type="text" onChange={(e)=>{
                 setEmployeeData({...employeeData,rol:e.target.value})
             }} />
             </div>

@@ -71,7 +71,7 @@ return (
              inputProduct.current.value = ''
           }}>Buscar</Button>
         </div>
-        <Table striped bordered hover size="sm" style={{marginTop:"30px"}}>
+        <Table responsive="sm"  style={{marginTop:"30px"}}>
       <thead>
         <tr>
           

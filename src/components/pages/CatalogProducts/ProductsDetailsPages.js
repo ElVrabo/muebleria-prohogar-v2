@@ -6,7 +6,9 @@ import { Button } from "react-bootstrap"
 import { paymentRequest
  } from "../../../api/payment"
 import { useForm } from "react-hook-form"
-
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal)
 
 
 const ProductsDetailsPages = ()=>{
@@ -49,13 +51,14 @@ const ProductsDetailsPages = ()=>{
                 navigate(`/formAddAddress/${productSelected._id}`)
                 //  paymentRequest(productSelected).then((res)=>window.location.href=res.data.response.body.init_point)
             }} >Comprar ahora</Button>
-            <Button variant="light" className="btn-add-to-cart" onClick={()=>{
-                addProducts(productSelected)
-            
+            <Button variant="light" className="btn-add-to-cart" onClick={async()=>{
+                await addProducts(productSelected)
+                MySwal.fire({
+                    title:"El producto se agrego al carrito",
+                    icon:"success"
+                })
             }} >Agregar al carrito</Button>
-            <Button variant="light" className="btn-add-to-favorite" onClick={()=>{
-                 
-            }}>Agregar a favoritos</Button>
+           
             </div>
             </div>
     

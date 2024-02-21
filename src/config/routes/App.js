@@ -6,7 +6,6 @@ import { Home } from "../../components/pages/Home/Home";
 import { UserContextProvider } from '../../context/usersContext';
 import { ProductsContextProvider } from '../../context/productsContext';
 import ProtectedRoutes from '../../ProtectedRoutes';
-import Dashboard from '../../components/pages/AdminPages/Dashboard';
 import Profile from '../../components/pages/profile/Profile';
 import FavoriteProducts from '../../components/pages/profile/FavoriteProducts';
 import ManageProducts from '../../components/pages/AdminPages/ManageProducts.js';
@@ -41,7 +40,6 @@ function App() {
       <Route path={LOGIN} element={<Login/>}/>
       <Route path={REGISTER} element={<Register/>}/>
       <Route path={LOGINADMIN} element={<LoginAdmin/>} />
-      <Route path={DASHBOARD} element={<Dashboard/>}/>
       <Route path={FORMADDPRODUCTS} element={<FormAddProducts/>} />
       <Route path={MANAGEPRODUCTS} element={<ManageProducts/>} />
       <Route path='/manageProducts/:id' element={<FormAddProducts/>} />

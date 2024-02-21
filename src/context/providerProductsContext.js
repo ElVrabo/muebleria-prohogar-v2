@@ -22,7 +22,7 @@ export const ProviderProductsContextProvider = ({children})=>{
     try {
         const res = await addProviderProductsRequest(provider)
         MySwal.fire({
-            title:"Se agrego el proveedor",
+            title:"Se agrego correctamente el proveedor",
             icon:"success"
         })
     } catch (error) {
@@ -49,10 +49,6 @@ export const ProviderProductsContextProvider = ({children})=>{
         const res = await deleteProviderProductsRequest(id)
         if(res.status ===200){
             setListProviderProducts(listProviderProducts.filter((provider=>provider._id!==id)))
-            MySwal.fire({
-                title:res.data.message,
-                icon:"success"
-            })
         }
       } catch (error) {
         

@@ -4,6 +4,7 @@
 }
 .container-sidebar{
     grid-column: span 3;
+    background-color: #ffffff;
 }
 .container-form-employees{
     grid-column: span 9;

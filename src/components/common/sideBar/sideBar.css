@@ -1,9 +1,22 @@
+.title{
+    background-color: red;
+    height: 140px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.title h2{
+color: #f4f2ee;
+}
 .sidebar{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    height: 50vh;
+    gap: 20px;
     margin-top: 30px;
     margin-left: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
     
 }
 .submenu{
@@ -24,4 +37,52 @@
 .sidebar-links{
     text-decoration: none;
     color: black;
+}
+.container-icon-products{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container-icon-products h6{
+    margin-top: 6px;
+}
+.icon-products{
+    width: 40px;
+    height: 40px;
+}
+.container-providers{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container-providers h6{
+    margin-top: 6px;
+}
+.icon-providers{
+    width: 40px;
+    height: 40px;
+}
+.container-icon-employees{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container-icon-employees h6{
+    margin-top: 6px;
+}
+.icon-employees{
+    width: 40px;
+    height: 40px;
+}
+.container-logout{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container-logout h6{
+    margin-top: 6px;
+}
+.icon-logout{
+    width: 40px;
+    height: 40px;
 }

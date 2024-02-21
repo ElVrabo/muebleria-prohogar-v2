@@ -1,8 +1,9 @@
 
 import { createContext,useState } from "react";
-import { createEmployeeRequest, deleteEmployeesRequest, editEmployeesRequest, getEmployeesRequest } from "../api/employees";
-
-
+import { createEmployeeRequest, deleteEmployeesRequest, editEmployeesRequest, filterEmployeeRequest, getEmployeesRequest } from "../api/employees";
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
+const MySwal = withReactContent(Swal)
 export const employeesContext = createContext()
 
 export const EmployeesContextProvider = ({children})=>{
@@ -31,13 +32,25 @@ export const EmployeesContextProvider = ({children})=>{
         console.log(response.data.message)
       }).then((error)=>console.log(error))
     }
+    const filterEmployee = (data)=>{
+      filterEmployeeRequest(data).then((response)=>{
+       setListEmployees(response.data)
+      }).catch((error)=>{
+       MySwal.fire({
+        title:error.response.data.error,
+        icon:"error"
+       })
+      
+      })
+    }
     return (
         <employeesContext.Provider value={{
          listEmployees,
          getEmployees,
          createEmployees,
          deleteEmployees,
-         editEmployees
+         editEmployees,
+         filterEmployee
         }} >
            {children}
         </employeesContext.Provider>

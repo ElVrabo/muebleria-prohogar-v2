@@ -1,26 +1,49 @@
 import "./employeesPages.css"
 import { Button, Table } from "react-bootstrap"
 import SideBar from "../../../common/sideBar/SideBar"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useReducer, useRef, useState } from "react"
 import { employeesContext } from "../../../../context/employeesContext"
 import iconDelete from "../../../../assets/icons/borrar.png"
 import iconEdit from "../../../../assets/icons/editar.png"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import { useNavigate } from "react-router-dom"
+import { CREATEEMPLOYEESPAGES } from "../../../../config/routes/path"
 const MySwal = withReactContent(Swal)
 
 const EmployeesPage = ()=>{
     const [isLoading, setIsLoading] = useState(true)
-    const {getEmployees,listEmployees,deleteEmployees} = useContext(employeesContext)
+    const [employeeName,setEmployeeName] = useState("")
+    const {getEmployees,listEmployees,deleteEmployees, filterEmployee} = useContext(employeesContext)
+    const inputEmployee = useRef()
     const navigate = useNavigate()
  useEffect(()=>{
     const loadEmployees = async()=>{
         await getEmployees()
-        setIsLoading(false)
+        setIsLoading(false)   
     }
     loadEmployees()
  },[])   
+
+ useEffect(()=>{
+    if(!isLoading && listEmployees.length === 0){
+          showAlert()
+      } 
+
+      async function showAlert(){
+        const result = await MySwal.fire({
+            title:"No hay empleados",
+            icon:"error",
+            showCancelButton:true,
+            confirmButtonText:"Agregar nuevo empleado",
+            cancelButtonText:"Cerrar"
+        })
+        if(result.isConfirmed){
+            navigate(CREATEEMPLOYEESPAGES)
+        }
+      }
+     
+ },[isLoading, listEmployees])
 
 
     return (
@@ -33,8 +56,13 @@ const EmployeesPage = ()=>{
                 <div className="container-search-employees">
                     <h3>Busca un empleado</h3>
                     <div className="search-employees" >
-                        <input type="text" placeholder="Busca un empleado por su nombre" />
-                        <Button variant="warning">Buscar</Button>
+                        <input ref={inputEmployee} type="text" placeholder="Busca un empleado por su nombre" onChange={(e)=>{
+                            setEmployeeName(e.target.value)
+                        }} />
+                        <Button variant="warning" onClick={async()=>{
+                         await filterEmployee(employeeName)
+                         inputEmployee.current.value = ""
+                        }} >Buscar</Button>
                     </div>
                 </div>
                 <Table striped bordered hover size="sm" style={{marginTop:"30px"}} >
@@ -60,10 +88,12 @@ const EmployeesPage = ()=>{
         <td style={{display:"flex",gap:"7px"}}>
          <img className="icon-delete" src={iconDelete} onClick={async()=>{
            await deleteEmployees(employee._id)
+           MySwal.fire({
+            title:"El empleado se elimino correctamente",
+            icon:"success"
+           })
          }} />
-         <img className="icon-edit" src={iconEdit} onClick={()=>{
-            navigate(`/createEmployee/${employee._id}`)
-         }}  />
+         
         </td>
         </tr>
        ))}

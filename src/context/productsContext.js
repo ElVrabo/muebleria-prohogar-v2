@@ -130,7 +130,7 @@ try {
       try {
         if(!value){
           MySwal.fire({
-            title:"Escribe el producto que deseas buscar",
+            title:"No se encontro el producto",
             icon:"error"
           })
           return 

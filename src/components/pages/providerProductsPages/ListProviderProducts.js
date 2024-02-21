@@ -7,6 +7,8 @@ import { FORMPROVIDERPRODUCTSPAGES } from "../../../config/routes/path"
 import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
+import iconDelete from "../../../assets/icons/borrar.png"
+import iconUpdate from "../../../assets/icons/editar.png"
 const MySwal = withReactContent(Swal)
 
 const ListProviderProducts = ()=>{
@@ -88,12 +90,14 @@ const ListProviderProducts = ()=>{
         <td>{provider.rfc}</td>
         <td>{new Date(provider.date).toLocaleDateString()}</td>
         <td style={{display:"flex",gap:"5px"}}>
-            <Button variant="light" style={{border:"2px solid orange"}} onClick={async()=>{
-               await deleteProviderProducts(provider._id)
-            }}>Eliminar</Button>
-            <Button style={{color:"#ffffff"}} variant="warning" onClick={()=>{
-        
-        }}>Editar</Button>
+            <img src={iconDelete} alt="icono de eliminar" onClick={async()=>{
+                await deleteProviderProducts(provider._id)
+                MySwal.fire({
+                    title:"El proveedor se elimino correctamente",
+                    icon:"success"
+                })
+            }} />
+            
         </td>
        
         </tr>

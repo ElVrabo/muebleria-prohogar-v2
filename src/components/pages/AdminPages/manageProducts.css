@@ -31,3 +31,16 @@
     height: 35px;
     color: #fff;
 }
+
+@media screen and (max-width: 600px) {
+.container-grids{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-product{
+    display: flex;
+    flex-direction: column;
+}
+
+}

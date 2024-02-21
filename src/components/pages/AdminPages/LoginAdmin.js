@@ -3,7 +3,7 @@ import "./formAdmin.css"
 import logoProhogar from "../../../assets/images/logoProhogar-removebg-preview.png"
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { DASHBOARD } from "../../../config/routes/path"
+import { DASHBOARD, FORMADDPRODUCTS } from "../../../config/routes/path"
 
  const LoginAdmin = ()=>{
     const [username,setUsername] = useState("")
@@ -13,7 +13,7 @@ import { DASHBOARD } from "../../../config/routes/path"
 
     const login = ()=>{
         if(username == "prohogar" && password == "mucp740610"){
-           navigate(DASHBOARD)
+           navigate(FORMADDPRODUCTS)
         }else{
           msjError.current.innerHTML = "Las credenciales que ingresaste son incorrectas"
         }

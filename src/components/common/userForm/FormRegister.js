@@ -11,6 +11,7 @@ import logoProhogar from "../../../assets/images/logoProhogar-removebg-preview.p
 
 
 
+
 const FormRegister = ()=>{
     const {registerUser} = useContext(userContext)
     const {register,handleSubmit} = useForm()
@@ -21,23 +22,23 @@ const FormRegister = ()=>{
 
     return (
         <>
-        <div className="container-form-register">
+        <div className="container_form_register">
             {/* <img src={logoProhogar} alt="logo de prohogar" style={{height:"150px",width:"200px",marginTop:"10px"}}/> */}
-            <form className="form-register" onSubmit={registerNewUser}>
+            <form className="form_register" onSubmit={registerNewUser}>
                
                 <h2 style={{marginTop:"15px", color:"#FAB125"}}>Crea tu cuenta</h2>
                 <div style={{display:"flex", gap:"10px"}}>
                     <p style={{color:"grey"}}>¿Ya tienes cuenta?</p>
                     <Link style={{textDecoration:"none", color:"#F48F0C"}} to={LOGIN}>Inicia sesion!</Link>
                 </div>
-                <label className="label-inputs">Email</label>
+                <label className="label_inputs">Email</label>
          
-                <input className="input-text" {...register('email')} type="text" placeholder="Ingresa tu correo"/>
+                <input className="input_email" {...register('email')} type="text" placeholder="Ingresa tu correo"/>
                 
-                <label className="label-inputs">Username</label>
-                <input className="input-text" {...register('username')} type="text" placeholder="Ingresa tu nombre de usuario"/>
-                <label className="label-inputs">Password</label>
-                <input className="input-text" {...register('password')} type="password" placeholder="Crea una contraseña"/>
+                <label className="label_inputs">Username</label>
+                <input className="input_username" {...register('username')} type="text" placeholder="Ingresa tu nombre de usuario"/>
+                <label className="label_inputs">Password</label>
+                <input className="input_password" {...register('password')} type="password" placeholder="Crea una contraseña"/>
                <Button type="submit"  style={{width:"95%",margin:"14px", color:"#ffffff"}} variant="warning">Registrarme</Button>
                <Link to={LOGINADMIN} style={{color:"#D86A07"}}>Inicia sesion como administrador</Link>
             </form>
