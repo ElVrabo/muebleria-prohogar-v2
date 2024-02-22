@@ -1,12 +1,12 @@
-import "./addProducts.css"
+import "./formAddProducts.css"
 import { Button } from "react-bootstrap"
 import { useForm} from "react-hook-form"
 import { useContext, useEffect, useRef, useState } from "react"
-import { productsContext } from "../../../context/productsContext"
+import { productsContext } from "../../../../context/productsContext"
 import { useParams } from "react-router-dom"
 import {Spinner} from "react-bootstrap"
-import SideBar from "../../common/sideBar/SideBar"
-import iconUploadImage from "../../../assets/icons/subir.png"
+import SideBar from "../../../common/sideBar/SideBar"
+import iconUploadImage from "../../../../assets/icons/subir.png"
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal)
@@ -81,6 +81,7 @@ const FormAddProducts = ()=>{
                 title:"Debes rellenar todos los campos",
                 icon:"error"
             })
+            reset()
             return 
             
         }

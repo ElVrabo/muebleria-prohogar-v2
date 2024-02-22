@@ -1,19 +1,19 @@
-import "./manageProducts.css"
+import "./productsPages.css"
 import { Button, Table } from "react-bootstrap"
 import React,{ useContext, useRef } from "react"
-import { productsContext } from "../../../context/productsContext"
+import { productsContext } from "../../../../context/productsContext.js"
 import { useEffect } from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import SideBar from "../../common/sideBar/SideBar.js"
+import SideBar from "../../../common/sideBar/SideBar.js"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
-import { FORMADDPRODUCTS } from "../../../config/routes/path.js"
-import iconDelete from "../../../assets/icons/borrar.png"
-import iconEdit from "../../../assets/icons/editar.png"
+import { FORMADDPRODUCTS } from "../../../../config/routes/path.js"
+import iconDelete from "../../../../assets/icons/borrar.png"
+import iconEdit from "../../../../assets/icons/editar.png"
 const MySwal = withReactContent(Swal)
 
-const ManageProducts = ()=>{
+const ProductsPages = ()=>{
     const [searchProduct,setSearchProduct] = useState('')
     const [isLoading,setIsLoading] = useState(true)
     const {getProductsOnSale,listProductsOnSale,deleteProductsOnSale,filterProductsName} = useContext(productsContext)
@@ -60,7 +60,6 @@ return (
       <SideBar/>
       </div>
       <div className="grid-products">
-        <h3 style={{textAlign:"center",marginTop:"50px"}}>Buscar productos</h3>
         <div className="search-product">
           <input ref={inputProduct} type="text" placeholder="Busca un producto en especifico" onChange={(e)=>{
             /*Todo lo que escribamos en el input se convertia a minusculas*/ 
@@ -120,4 +119,4 @@ return (
         </>
     )
 }   
-export default ManageProducts
+export default ProductsPages

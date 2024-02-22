@@ -1,4 +1,4 @@
-import "./createEmployees.css"
+import "./formAddEmployees.css"
 import React, { useState,FormEvent, useContext, useRef } from "react"
 import { Button } from "react-bootstrap"
 import { employeesContext } from "../../../../context/employeesContext"
@@ -6,7 +6,7 @@ import SideBar from "../../../common/sideBar/SideBar"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 const MySwal = withReactContent(Swal)
-const CreateEmployeesPages = ()=>{
+const FormAddEmployees = ()=>{
     const [employeeData,setEmployeeData] = useState({
         username:null,
         age:null,
@@ -90,4 +90,4 @@ const CreateEmployeesPages = ()=>{
     )
 }
 
-export default CreateEmployeesPages
+export default FormAddEmployees

@@ -8,24 +8,24 @@ import { ProductsContextProvider } from '../../context/productsContext';
 import ProtectedRoutes from '../../ProtectedRoutes';
 import Profile from '../../components/pages/profile/Profile';
 import FavoriteProducts from '../../components/pages/profile/FavoriteProducts';
-import ManageProducts from '../../components/pages/AdminPages/ManageProducts.js';
-import FormAddProducts from '../../components/pages/AdminPages/FormAddProducts.js';
+import ProductsPages from "../../components/pages/AdminPages/products/ProductsPages.js";
+import FormAddProducts from '../../components/pages/AdminPages/products/FormAddProducts.js';
 import ProductsDetailsPages from '../../components/pages/CatalogProducts/ProductsDetailsPages.js';
 import CatalogProductsPages from '../../components/pages/CatalogProducts/CatalogProductsPages.js';
 import CartPages from '../../components/pages/ProductsCart/CartPages.js';
 import EditProfilePages from '../../components/pages/profile/EditProfilePages';
 import ContactPages from '../../components/pages/Contact/ContactPages.js';
 import FormAddAdress from "../../components/pages/FormAddAddress/FormAddAdress.js";
-import LoginAdmin from "../../components/pages/AdminPages/LoginAdmin.js";
+import LoginPages from "../../components/pages/AdminPages/login/LoginPages.js";
 import Login from "../../components/pages/Auth/Login.js";
 import Register from "../../components/pages/Auth/Register.js";
 import { ProviderProductsContextProvider } from "../../context/providerProductsContext.js";
-import FormProviderProductsPages from "../../components/pages/providerProductsPages/FormProviderProductsPages.js";
-import ListProviderProducts from "../../components/pages/providerProductsPages/ListProviderProducts.js";
+import FormAddSellers from "../../components/pages/AdminPages/sellers/FormAddSellers.js";
+import SellersPages from "../../components/pages/AdminPages/sellers/SellersPages.js";
 import ChangePassword from "../../components/pages/profile/ChangePassword.js";
-import CreateEmployeesPages from "../../components/pages/AdminPages/createEmployees/CreateEmployees.js";
+import FormAddEmployees from "../../components/pages/AdminPages/employees/FormAddEmployees.js";
 import { EmployeesContextProvider } from "../../context/employeesContext.js";
-import EmployeesPage from "../../components/pages/AdminPages/createEmployees/EmployeesPages.js";
+import EmployeesPage from "../../components/pages/AdminPages/employees/EmployeesPages.js";
 
 
 
@@ -39,15 +39,15 @@ function App() {
       <Routes>
       <Route path={LOGIN} element={<Login/>}/>
       <Route path={REGISTER} element={<Register/>}/>
-      <Route path={LOGINADMIN} element={<LoginAdmin/>} />
+      <Route path={LOGINADMIN} element={<LoginPages/>} />
       <Route path={FORMADDPRODUCTS} element={<FormAddProducts/>} />
-      <Route path={MANAGEPRODUCTS} element={<ManageProducts/>} />
+      <Route path={MANAGEPRODUCTS} element={<ProductsPages/>} />
       <Route path='/manageProducts/:id' element={<FormAddProducts/>} />
-      <Route path={FORMPROVIDERPRODUCTSPAGES} element={<FormProviderProductsPages/>} />
-      <Route path={LISTPROVIDERPRODUCTS} element={<ListProviderProducts/>} />
+      <Route path={FORMPROVIDERPRODUCTSPAGES} element={<FormAddSellers/>} />
+      <Route path={LISTPROVIDERPRODUCTS} element={<SellersPages/>} />
       <Route path={EMPLOYEESPAGES} element={<EmployeesPage/>} />
-      <Route path={CREATEEMPLOYEESPAGES} element={<CreateEmployeesPages/>} />
-      <Route path={EDITEMPLOYEESPAGES} element={<CreateEmployeesPages/>} />
+      <Route path={CREATEEMPLOYEESPAGES} element={<FormAddEmployees/>} />
+      <Route path={EDITEMPLOYEESPAGES} element={<FormAddEmployees/>} />
       {/*Dentro de ProtectedRoutes se ponen las rutas que necesitan que el usuario este
       autenticado para que puedan acceder a ellas*/ }
       <Route element={<ProtectedRoutes/>}>

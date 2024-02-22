@@ -54,7 +54,6 @@ const EmployeesPage = ()=>{
             </div>
             <div className="container-employees" >
                 <div className="container-search-employees">
-                    <h3>Busca un empleado</h3>
                     <div className="search-employees" >
                         <input ref={inputEmployee} type="text" placeholder="Busca un empleado por su nombre" onChange={(e)=>{
                             setEmployeeName(e.target.value)

@@ -10,13 +10,15 @@
 }
 .grid-products{
     grid-column: span 9;
+
     
 }
 .search-product{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    margin-top: 130px;
+    gap: 15px;
     
 }
 .search-product input{

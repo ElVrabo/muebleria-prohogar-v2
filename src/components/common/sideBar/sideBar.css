@@ -1,5 +1,5 @@
 .title{
-    background-color: red;
+    background-color: orange;
     height: 140px;
     border-radius: 5px;
     display: flex;
@@ -18,19 +18,21 @@ color: #f4f2ee;
     border-radius: 5px;
     background-color: #ffffff;
     
+    
 }
 .submenu{
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-top: -25px;
-    background-color: #f4f2ee;
+    margin-top: -10px;
+    background-color: orange;
     width: 70%;
     border-radius: 5px;
+    
     /* align-items: center; */
 }
 .submenu-links{
-    color: black;
+    color: #f4f2ee;
     text-decoration: none;
     margin-left: 5px;
 }

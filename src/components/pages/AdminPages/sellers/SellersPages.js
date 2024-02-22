@@ -1,17 +1,17 @@
-import "./listProviderProducts.css"
+import "./sellersPages.css"
 import { useContext, useEffect, useRef, useState } from "react"
-import SideBar from "../../common/sideBar/SideBar"
-import { providerProductsContext } from "../../../context/providerProductsContext"
+import SideBar from "../../../common/sideBar/SideBar"
+import { providerProductsContext } from "../../../../context/providerProductsContext"
 import { Table,Button } from "react-bootstrap"
-import { FORMPROVIDERPRODUCTSPAGES } from "../../../config/routes/path"
+import { FORMPROVIDERPRODUCTSPAGES } from "../../../../config/routes/path"
 import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
-import iconDelete from "../../../assets/icons/borrar.png"
-import iconUpdate from "../../../assets/icons/editar.png"
+import iconDelete from "../../../../assets/icons/borrar.png"
+
 const MySwal = withReactContent(Swal)
 
-const ListProviderProducts = ()=>{
+const SellersPages = ()=>{
     const [providerName,setProviderName] = useState('')
     const [isLoading,setIsLoading] = useState(true)
     const {getProviderProducts,listProviderProducts,filterProviderProduct,deleteProviderProducts} = useContext(providerProductsContext)
@@ -58,9 +58,8 @@ const ListProviderProducts = ()=>{
         </div>
         <div className="grid-table-providers">
             <div className="container-search-provider" >
-                <h2>Busca un proveedor</h2>
                 <div className="input-search-provider" >
-                    <input ref={inputProviderProduct} type="text" placeholder="Busca un proveedor" value={providerName} onChange={(e)=>{
+                    <input ref={inputProviderProduct} type="text" placeholder="Busca un proveedor en especifico" value={providerName} onChange={(e)=>{
                         setProviderName(e.target.value)
                     }} />
                     <Button variant="warning" style={{color:"#ffffff",height:"35px"}} onClick={()=>{
@@ -110,4 +109,4 @@ const ListProviderProducts = ()=>{
         </>
     )
 }
-export default ListProviderProducts
+export default SellersPages

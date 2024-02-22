@@ -8,7 +8,7 @@
 }
 .container-employees{
     grid-column: span 9;
-    margin-top: 30px;
+    margin-top: 125px;
 }
 .container-search-employees{
     display: flex;
@@ -19,7 +19,7 @@
 }
 .search-employees{
     display: flex;
-    gap: 5px;
+    gap: 15px;
     align-items: center;
 }
 .container-search-employees input{

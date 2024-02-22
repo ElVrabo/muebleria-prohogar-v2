@@ -1,11 +1,11 @@
 import { Button } from "react-bootstrap"
-import "./formAdmin.css"
-import logoProhogar from "../../../assets/images/logoProhogar-removebg-preview.png"
+import "./loginPages.css"
+import logoProhogar from "../../../../assets/images/logoProhogar-removebg-preview.png"
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { DASHBOARD, FORMADDPRODUCTS } from "../../../config/routes/path"
+import {  FORMADDPRODUCTS } from "../../../../config/routes/path"
 
- const LoginAdmin = ()=>{
+ const LoginPages = ()=>{
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
     const msjError = useRef()
@@ -45,4 +45,4 @@ import { DASHBOARD, FORMADDPRODUCTS } from "../../../config/routes/path"
     )
  }
 
- export default LoginAdmin
+ export default LoginPages

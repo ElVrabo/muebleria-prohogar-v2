@@ -1,11 +1,11 @@
-import "./formProviderProductsPages.css"
+import "./formAddSellers.css"
 import { useContext } from "react"
 import { useForm } from "react-hook-form"
-import { providerProductsContext } from "../../../context/providerProductsContext"
-import SideBar from "../../common/sideBar/SideBar"
+import { providerProductsContext } from "../../../../context/providerProductsContext"
+import SideBar from "../../../common/sideBar/SideBar"
 import { Button } from "react-bootstrap"
 
-const FormProviderProductsPages = ()=>{
+const FormAddSellers = ()=>{
     const {addProviderProducts} = useContext(providerProductsContext)
     const {register,handleSubmit,reset} = useForm()
 
@@ -68,4 +68,4 @@ const FormProviderProductsPages = ()=>{
         </>
     )
 }
-export default FormProviderProductsPages
+export default FormAddSellers
