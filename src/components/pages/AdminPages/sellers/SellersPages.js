@@ -1,7 +1,7 @@
 import "./sellersPages.css"
 import { useContext, useEffect, useRef, useState } from "react"
 import SideBar from "../../../common/sideBar/SideBar"
-import { providerProductsContext } from "../../../../context/providerProductsContext"
+import { sellersContext } from "../../../../context/sellersContext"
 import { Table,Button } from "react-bootstrap"
 import { FORMPROVIDERPRODUCTSPAGES } from "../../../../config/routes/path"
 import { useNavigate } from "react-router-dom"
@@ -12,28 +12,35 @@ import iconDelete from "../../../../assets/icons/borrar.png"
 const MySwal = withReactContent(Swal)
 
 const SellersPages = ()=>{
-    const [providerName,setProviderName] = useState('')
+    const [sellerName,setSellerName] = useState('')
     const [isLoading,setIsLoading] = useState(true)
-    const {getProviderProducts,listProviderProducts,filterProviderProduct,deleteProviderProducts} = useContext(providerProductsContext)
-    const inputProviderProduct = useRef()
+    const {getSellers,listSellers,filterSellers,deleteSellers} = useContext(sellersContext)
+    const inputSeller = useRef()
     const navigate = useNavigate()
     useEffect(()=>{
-        const loadProviderProducts = async()=>{
-            await getProviderProducts()
+        const loadSellers = async()=>{
+            await getSellers()
             /*se actualiza el estado isLoading despues de que me traiga
             los proveedores de productos*/
             setIsLoading(false)
            
         }
-        loadProviderProducts()
+        loadSellers()
     },[])
 
     useEffect(()=>{
-        if(!isLoading && listProviderProducts.length === 0){
+        if(!isLoading && listSellers.length === 0){
             showAlert()
         }
        
-    },[isLoading,listProviderProducts])
+    },[isLoading,listSellers])
+
+    useEffect(()=>{
+      const searchSellers = async ()=>{
+        await filterSellers(sellerName,inputSeller)
+      }
+      searchSellers()
+    },[sellerName])
 
    const showAlert=async()=>{
     const result = await MySwal.fire({
@@ -59,13 +66,13 @@ const SellersPages = ()=>{
         <div className="grid-table-providers">
             <div className="container-search-provider" >
                 <div className="input-search-provider" >
-                    <input ref={inputProviderProduct} type="text" placeholder="Busca un proveedor en especifico" value={providerName} onChange={(e)=>{
-                        setProviderName(e.target.value)
+                    <input ref={inputSeller} type="text" placeholder="Busca un proveedor en especifico" value={sellerName} onChange={(e)=>{
+                        setSellerName(e.target.value)
                     }} />
-                    <Button variant="warning" style={{color:"#ffffff",height:"35px"}} onClick={()=>{
-                     filterProviderProduct(providerName)
-                     inputProviderProduct.current.value = ''
-                    }} >Buscar</Button>
+                    {/* <Button variant="warning" style={{color:"#ffffff",height:"35px"}} onClick={async()=>{
+                     await filterSellers(sellerName)
+                     inputSeller.current.value = ''
+                    }} >Buscar</Button> */}
                 </div>
             </div>
             <Table striped bordered hover size="sm" style={{marginTop:"30px"}}>
@@ -81,16 +88,16 @@ const SellersPages = ()=>{
         </tr>
       </thead>
       <tbody>
-       {listProviderProducts.map((provider)=>(
-        <tr key={provider._id}>
-        <td>{provider.razon_social}</td>
-        <td>{provider.address}</td>
-        <td>{provider.number}</td>
-        <td>{provider.rfc}</td>
-        <td>{new Date(provider.date).toLocaleDateString()}</td>
+       {listSellers.map((seller)=>(
+        <tr key={seller._id}>
+        <td>{seller.razon_social}</td>
+        <td>{seller.address}</td>
+        <td>{seller.number}</td>
+        <td>{seller.rfc}</td>
+        <td>{new Date(seller.date).toLocaleDateString()}</td>
         <td style={{display:"flex",gap:"5px"}}>
             <img src={iconDelete} alt="icono de eliminar" onClick={async()=>{
-                await deleteProviderProducts(provider._id)
+                await deleteSellers(seller._id)
                 MySwal.fire({
                     title:"El proveedor se elimino correctamente",
                     icon:"success"

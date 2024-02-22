@@ -1,16 +1,16 @@
 import "./formAddSellers.css"
 import { useContext } from "react"
 import { useForm } from "react-hook-form"
-import { providerProductsContext } from "../../../../context/providerProductsContext"
+import { sellersContext } from "../../../../context/sellersContext"
 import SideBar from "../../../common/sideBar/SideBar"
 import { Button } from "react-bootstrap"
 
 const FormAddSellers = ()=>{
-    const {addProviderProducts} = useContext(providerProductsContext)
+    const {addSellers} = useContext(sellersContext)
     const {register,handleSubmit,reset} = useForm()
 
-    const addProviderProduct = handleSubmit(async(provider)=>{
-          await addProviderProducts(provider)
+    const createSeller = handleSubmit(async(seller)=>{
+          await addSellers(seller)
           reset()
     }) 
     
@@ -21,7 +21,7 @@ const FormAddSellers = ()=>{
                 <SideBar/>
             </div>
             <div className="grid-form-add-provider" >
-           <form className="form-provider-products" onSubmit={addProviderProduct} >
+           <form className="form-provider-products" onSubmit={createSeller} >
                 <div className="inputs-form-provider-products" >
                 <div className="container-name-razon-social">
                     <div className="provider-name">

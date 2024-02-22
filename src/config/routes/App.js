@@ -19,22 +19,20 @@ import FormAddAdress from "../../components/pages/FormAddAddress/FormAddAdress.j
 import LoginPages from "../../components/pages/AdminPages/login/LoginPages.js";
 import Login from "../../components/pages/Auth/Login.js";
 import Register from "../../components/pages/Auth/Register.js";
-import { ProviderProductsContextProvider } from "../../context/providerProductsContext.js";
 import FormAddSellers from "../../components/pages/AdminPages/sellers/FormAddSellers.js";
 import SellersPages from "../../components/pages/AdminPages/sellers/SellersPages.js";
 import ChangePassword from "../../components/pages/profile/ChangePassword.js";
 import FormAddEmployees from "../../components/pages/AdminPages/employees/FormAddEmployees.js";
 import { EmployeesContextProvider } from "../../context/employeesContext.js";
 import EmployeesPage from "../../components/pages/AdminPages/employees/EmployeesPages.js";
-
-
+import { SellersContextProvider } from "../../context/sellersContext.js";
 
 function App() {
   return (
    
      <UserContextProvider>
       <ProductsContextProvider>
-        <ProviderProductsContextProvider>
+        <SellersContextProvider>
       <EmployeesContextProvider>
       <Routes>
       <Route path={LOGIN} element={<Login/>}/>
@@ -64,7 +62,7 @@ function App() {
       </Route>
     </Routes>
       </EmployeesContextProvider>
-    </ProviderProductsContextProvider>
+    </SellersContextProvider>
       </ProductsContextProvider>
      </UserContextProvider>
    

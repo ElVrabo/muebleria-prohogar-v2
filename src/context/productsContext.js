@@ -126,23 +126,17 @@ try {
       
       }
     }
-    const filterProductsName = async(value) =>{
+    const filterProductsName = async(productName,inputProduct) =>{
       try {
-        if(!value){
-          MySwal.fire({
-            title:"No se encontro el producto",
-            icon:"error"
-          })
-          return 
-        }
-        const res = await filterProductsNameRequest(value)
+        const res = await filterProductsNameRequest(productName)
         setListProductsOnSale(res.data)
         
       } catch (error) {
-        MySwal.fire({
+        await MySwal.fire({
           title:error.response.data.error,
           icon:'error'
         })
+        inputProduct.current.value = ''
       
       }
     }

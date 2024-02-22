@@ -14,7 +14,7 @@ import iconEdit from "../../../../assets/icons/editar.png"
 const MySwal = withReactContent(Swal)
 
 const ProductsPages = ()=>{
-    const [searchProduct,setSearchProduct] = useState('')
+    const [productName,setProductName] = useState('')
     const [isLoading,setIsLoading] = useState(true)
     const {getProductsOnSale,listProductsOnSale,deleteProductsOnSale,filterProductsName} = useContext(productsContext)
     const navigate = useNavigate()
@@ -32,7 +32,14 @@ const ProductsPages = ()=>{
     if (!isLoading&&listProductsOnSale.length === 0){
        showAlert()
     }
-    },[isLoading])
+    },[isLoading,listProductsOnSale])
+
+    useEffect(()=>{
+      const searchProducts = async()=>{
+        await filterProductsName(productName,inputProduct)
+      }
+      searchProducts()
+    },[productName])
 
     const showAlert = async()=>{
       const result = await MySwal.fire({
@@ -63,12 +70,12 @@ return (
         <div className="search-product">
           <input ref={inputProduct} type="text" placeholder="Busca un producto en especifico" onChange={(e)=>{
             /*Todo lo que escribamos en el input se convertia a minusculas*/ 
-            setSearchProduct(e.target.value)
+            setProductName(e.target.value)
           }}/>
-          <Button variant="warning" className="btn-search-product" onClick={()=>{
+          {/* <Button variant="warning" className="btn-search-product" onClick={()=>{
              filterProductsName(searchProduct)
              inputProduct.current.value = ''
-          }}>Buscar</Button>
+          }}>Buscar</Button> */}
         </div>
         <Table responsive="sm"  style={{marginTop:"30px"}}>
       <thead>
