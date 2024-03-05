@@ -42,3 +42,40 @@
 .btn-send-employee:hover{
     color:#ffffff
 }
+
+@media (max-width: 760px) {
+    .container-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto; /* Ajusta la altura al contenido */
+    }
+  
+    .container-sidebar {
+      width: 90%; /* Ajusta el ancho del sidebar al 90% */
+      margin: 20px auto; /* Centra el sidebar horizontalmente y agrega margen en la parte superior e inferior */
+    }
+  
+    .container-form-employees {
+      width: 90%; /* Ajusta el ancho del formulario al 90% */
+      margin: 20px auto; /* Centra el formulario horizontalmente y agrega margen en la parte superior e inferior */
+    }
+  
+    .form-employees {
+      width: 100%; /* Ajusta el ancho del formulario al 100% */
+    }
+  
+    .container-inputs input {
+      width: 100%; /* Ajusta el ancho de los inputs al 100% */
+       /* Establece un ancho máximo para los inputs */
+    }
+  
+    .container-labels {
+      margin-top: 20px; /* Aumenta el margen superior */
+    }
+  
+    .btn-send-employee {
+      width: 50%; /* Ajusta el ancho del botón al 100% */
+    }
+  }
+  

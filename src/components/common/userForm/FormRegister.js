@@ -40,7 +40,7 @@ const FormRegister = ()=>{
                 <label className="label_inputs">Password</label>
                 <input className="input_password" {...register('password')} type="password" placeholder="Crea una contraseña"/>
                <Button type="submit"  style={{width:"95%",margin:"14px", color:"#ffffff"}} variant="warning">Registrarme</Button>
-               <Link to={LOGINADMIN} style={{color:"#D86A07"}}>Inicia sesion como administrador</Link>
+               <Link to={LOGINADMIN} style={{color:"#D86A07", textDecoration:"none"}}>¡Inicia sesion como administrador!</Link>
             </form>
         </div>
         </>

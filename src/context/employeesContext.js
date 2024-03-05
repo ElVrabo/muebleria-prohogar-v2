@@ -32,16 +32,18 @@ export const EmployeesContextProvider = ({children})=>{
         console.log(response.data.message)
       }).then((error)=>console.log(error))
     }
-    const filterEmployee = (data)=>{
-      filterEmployeeRequest(data).then((response)=>{
-       setListEmployees(response.data)
-      }).catch((error)=>{
-       MySwal.fire({
-        title:error.response.data.error,
-        icon:"error"
-       })
-      
-      })
+    const filterEmployee = async(employeeName,inputEmployee)=>{
+      try {
+        const res = await filterEmployeeRequest(employeeName)
+        setListEmployees(res.data)
+      } catch (error) {
+        await MySwal.fire({
+          icon:"error",
+          title:error.response.data.error
+        })
+        inputEmployee.current.value = null
+      }
+           
     }
     return (
         <employeesContext.Provider value={{

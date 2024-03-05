@@ -75,7 +75,8 @@ const SellersPages = ()=>{
                     }} >Buscar</Button> */}
                 </div>
             </div>
-            <Table striped bordered hover size="sm" style={{marginTop:"30px"}}>
+           <div className="table-container-sellers" >
+           <Table className="table-sellers"  responsive="sm">
       <thead>
         <tr>
           
@@ -111,6 +112,7 @@ const SellersPages = ()=>{
         
       </tbody>
     </Table>
+           </div>
         </div>
        </div>
         </>

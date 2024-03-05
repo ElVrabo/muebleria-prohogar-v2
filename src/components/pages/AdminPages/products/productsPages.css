@@ -34,15 +34,56 @@
     color: #fff;
 }
 
-@media screen and (max-width: 600px) {
-.container-grids{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.search-product{
-    display: flex;
-    flex-direction: column;
+.table-products{
+    margin-top: 30px;
 }
 
-}
+@media  (max-width: 760px) {
+    .container-grids {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto; /* Ajusta la altura al contenido */
+    }
+  
+    .grid-sidebars {
+      width: 90%; /* Ajusta el ancho del sidebar al 90% */
+      margin: 20px auto; /* Centra el sidebar horizontalmente y agrega margen en la parte superior e inferior */
+    }
+  
+    .grid-products {
+      width: 90%; /* Ajusta el ancho del área de productos al 90% */
+      margin: 20px auto; /* Centra el área de productos horizontalmente y agrega margen en la parte superior e inferior */
+    }
+  
+    .search-product {
+      margin-top: 20px; /* Reduce el margen superior del área de búsqueda */
+      gap: 10px; /* Reduce el espacio entre los elementos del área de búsqueda */
+    }
+  
+    .search-product input {
+      width: 100%; /* Ajusta el ancho del input al 100% */
+      text-align: left; /* Ajusta el texto del input a la izquierda */
+      margin-bottom: 10px; /* Agrega margen inferior al input */
+    }
+  
+    .btn-search-product {
+      width: 100%; /* Ajusta el ancho del botón al 100% */
+    }
+
+    .table-container-products{
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
+        width: 95%;
+    }
+  
+    .table-products {
+      width: 80%; /* Ajusta el ancho de la tabla al 100% */
+      border-collapse: collapse; /* Fusiona los bordes de la tabla */
+      white-space: nowrap; /* Evita que el contenido de la tabla se envuelva */
+      margin-top: 10px;
+    }
+    .table-products  th, td {
+        padding: 8px; /* Ajusta el relleno de las celdas */
+      }
+  }
+  

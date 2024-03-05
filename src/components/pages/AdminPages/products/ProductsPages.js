@@ -77,7 +77,8 @@ return (
              inputProduct.current.value = ''
           }}>Buscar</Button> */}
         </div>
-        <Table responsive="sm"  style={{marginTop:"30px"}}>
+        <div className="table-container-products" >
+        <Table className="table-products" responsive="sm" >
       <thead>
         <tr>
           
@@ -119,6 +120,7 @@ return (
         
       </tbody>
     </Table>
+        </div>
       </div>
     
         </div>

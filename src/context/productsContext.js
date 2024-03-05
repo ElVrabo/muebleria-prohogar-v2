@@ -136,7 +136,7 @@ try {
           title:error.response.data.error,
           icon:'error'
         })
-        inputProduct.current.value = ''
+        inputProduct.current.value = null
       
       }
     }

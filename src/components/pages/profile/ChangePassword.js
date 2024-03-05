@@ -16,18 +16,18 @@ const ChangePassword = ()=>{
         <>
         <div className="container-change-password">
             <form className="form-change-password" onSubmit={handleForm} >
-                <div className="input-current-password" >
-                <label>Contraseña actual</label>
-                <input type="password" {...register('currentPassword')}  />
-                </div>
-                <div className="input-new-password" >
+                
+                <label className="">Contraseña actual</label>
+                <input  type="password" {...register('currentPassword')}  />
+                
+                
                 <label>Nueva contraseña</label>
                 <input type="password" {...register('newPassword')} />
-                </div>
-                <div className="input-new-password" >
+                
+                
                 <label>Confirma la contraseña</label>
                 <input type="password" {...register('confirmNewPassword')} />
-                </div>
+                
                 <Button className="btn-change-password" variant="warning" type="submit" >Cambiar</Button>
             </form>
         </div>

@@ -44,6 +44,7 @@
 .provider-name{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .razon-social{
     display: flex;
@@ -56,6 +57,7 @@
 .address{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .number{
     display: flex;
@@ -68,6 +70,7 @@
 .rfc{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .gmail{
     display: flex;
@@ -77,3 +80,60 @@
     display: flex;
     justify-content: center;
 }
+
+
+@media (max-width: 768px) {
+    .container-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto; /* Ajusta la altura al contenido */
+    }
+  
+    .grid-sidebar {
+      width: 90%; /* Ajusta el ancho del sidebar al 90% */
+      margin: 20px auto; /* Centra el sidebar horizontalmente y agrega margen en la parte superior e inferior */
+    }
+  
+    .grid-form-add-provider {
+      width: 90%; /* Ajusta el ancho del formulario al 90% */
+      margin: 20px auto; /* Centra el formulario horizontalmente y agrega margen en la parte superior e inferior */
+    }
+  
+    .form-provider-products {
+      width: 100%; /* Ajusta el ancho del formulario al 100% */
+    }
+  
+    .inputs-form-provider-products {
+      gap: 10px; /* Reduce el espacio entre los elementos del formulario */
+    }
+  
+    .inputs-form-provider-products input {
+      width: 100%; /* Ajusta el ancho de los inputs al 100% */
+    }
+  
+    .container-name-razon-social,
+    .container-address-number,
+    .container-rfc-gmail {
+      flex-direction: column; /* Cambia la dirección de los contenedores a columna */
+    }
+  
+    .container-name-razon-social .provider-name,
+    .container-name-razon-social .razon-social,
+    .container-address-number .address,
+    .container-address-number .number,
+    .container-rfc-gmail .rfc,
+    .container-rfc-gmail .gmail {
+      width: 100%; /* Ajusta el ancho de los contenedores internos al 100% */
+    }
+  
+    .btn-add-provider {
+      width: 100%; /* Ajusta el ancho del botón al 100% */
+      display: flex;
+      justify-content: center;
+      margin-top: 20px; /* Agrega un margen superior al botón */
+    }
+  }
+  
+
+

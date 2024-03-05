@@ -1,5 +1,52 @@
-.input-admin:focus,
+.container-form-admin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-admin{
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 900px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.form-admin input{
+    width: 750px;
+    border-radius: 5px;
+    background-color: #f4f2ee;
+    border: 1px solid #f4f2ee;
+    height: 35px;
+}
+
+.form-admin Button{
+    width: 750px;
+    color: #f4f2ee;
+}
+
+.form-admin Button:hover{
+    color: #f4f2ee;
+}
+
+/* .input-admin:focus,
 .input-admin:active{
     border: 2px solid rgba(0, 0, 255, 0.5);
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+} */
+
+@media (max-width:760px){
+.form-admin{
+    width: 90%;
+}
+.form-admin input{
+    width: 80%;
+}
+.form-admin Button{
+    width: 80%;
+}
 }

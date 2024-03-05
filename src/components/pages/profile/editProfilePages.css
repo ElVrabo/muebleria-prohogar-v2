@@ -26,13 +26,17 @@
 }
 .form-edit-profile input{
     width: 400px;
+    height: 35px;
     background-color: #F4F2EE;
     border:1px solid #F4F2EE;
     border-radius: 5px;
 }
 .form-edit-profile Button{
-    color: #ffffff;
+    color: #f4f2ee;
     width: 300px;
+}
+.form-edit-profile Button:hover{
+    color: #F4F2EE;
 }
 
 @media only screen and (max-width:600px){

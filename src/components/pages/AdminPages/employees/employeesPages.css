@@ -38,3 +38,64 @@
 .icon-edit:hover{
     cursor:pointer
 }
+
+.table-employees{
+    margin-top: 30px;
+}
+
+@media  (max-width: 760px) {
+    .container-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto; /* Ajusta la altura al contenido */
+    }
+  
+    .container-sidebar {
+      width: 90%; /* Ajusta el ancho del sidebar al 90% */
+      margin: 20px auto; /* Centra el sidebar horizontalmente y agrega margen en la parte superior e inferior */
+    }
+  
+    .container-employees {
+      width: 90%; /* Ajusta el ancho del contenedor de empleados al 90% */
+      margin: 20px auto; /* Centra el contenedor horizontalmente y agrega margen en la parte superior e inferior */
+      margin-top: 50px; /* Ajusta el margen superior */
+    }
+  
+    .container-search-employees {
+      margin-bottom: 20px; /* Reduce el margen inferior del contenedor de búsqueda */
+    }
+  
+    .search-employees {
+      flex-direction: column; /* Cambia la dirección de los elementos a columna */
+      gap: 10px; /* Reduce el espacio entre los elementos del contenedor de búsqueda */
+    }
+  
+    .container-search-employees input {
+      width: 100%; /* Ajusta el ancho del input al 100% */
+      max-width: 300px; /* Establece un ancho máximo para el input */
+      margin-bottom: 10px; /* Agrega un margen inferior al input */
+    }
+  
+    .container-search-employees Button {
+      width: 100%; /* Ajusta el ancho del botón al 100% */
+    }
+
+    .table-container-employees{
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
+        width: 95%;
+    }
+  
+    .table-employees {
+        width: 80%; /* Ajusta el ancho de la tabla al 100% */
+        border-collapse: collapse; /* Fusiona los bordes de la tabla */
+        white-space: nowrap; /* Evita que el contenido de la tabla se envuelva */
+        margin-top: 10px;
+    }
+  
+    .icon-delete,
+    .icon-edit {
+      cursor: pointer; /* Cambia el cursor a pointer en los iconos */
+    }
+  }
+  

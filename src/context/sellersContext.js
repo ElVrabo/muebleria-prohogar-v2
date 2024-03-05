@@ -42,7 +42,7 @@ export const SellersContextProvider = ({children})=>{
         title:error.response.data.message,
         icon:"error"
     })
-    inputSeller.current.value = ''
+    inputSeller.current.value = null
    }
    }
    const deleteSellers = async(id)=>{

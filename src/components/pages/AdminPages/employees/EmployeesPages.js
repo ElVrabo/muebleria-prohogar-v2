@@ -45,6 +45,13 @@ const EmployeesPage = ()=>{
      
  },[isLoading, listEmployees])
 
+ useEffect(()=>{
+    const searchEmployee = async()=>{
+            await filterEmployee(employeeName,inputEmployee)
+    }
+    searchEmployee()
+ },[employeeName])
+
 
     return (
         <>
@@ -58,13 +65,11 @@ const EmployeesPage = ()=>{
                         <input ref={inputEmployee} type="text" placeholder="Busca un empleado por su nombre" onChange={(e)=>{
                             setEmployeeName(e.target.value)
                         }} />
-                        <Button variant="warning" onClick={async()=>{
-                         await filterEmployee(employeeName)
-                         inputEmployee.current.value = ""
-                        }} >Buscar</Button>
+                      
                     </div>
                 </div>
-                <Table striped bordered hover size="sm" style={{marginTop:"30px"}} >
+                <div className="table-container-employees">
+                <Table className="table-employees" responsive="sm"  >
                 <thead>
         <tr>
           
@@ -99,6 +104,7 @@ const EmployeesPage = ()=>{
         
       </tbody>
                 </Table>
+                </div>
             </div>
         </div>
         </>

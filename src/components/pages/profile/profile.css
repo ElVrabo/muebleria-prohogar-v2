@@ -55,7 +55,10 @@
     background-color: #ffffff;
 }
 .container-btn-edit-profile Button{
-color: #ffffff;
+color: #f4f2ee;
+}
+.container-btn-edit-profile Button:hover{
+    color:#f4f2ee;
 }
 
 @media only screen and (max-width:600px){

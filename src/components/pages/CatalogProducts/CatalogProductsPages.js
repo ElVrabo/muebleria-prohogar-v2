@@ -16,6 +16,8 @@ const CatalogProductsPages = ()=>{
         getProductsOnSale()
     },[])
 
+  
+
     const handleInputProduct = (e)=>{
         setNameProduct(e.target.value)
     }

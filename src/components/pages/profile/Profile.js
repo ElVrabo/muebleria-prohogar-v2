@@ -33,7 +33,7 @@ const Profile = ()=>{
                   <div className="username">
                   <h4>Usuario: </h4>
                   </div>
-                <input style={{width:"200px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.username} disabled />
+                <input style={{width:"200px",height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.username} disabled />
                 </div>
                
                  <div className="container-email">
@@ -41,7 +41,7 @@ const Profile = ()=>{
 
                  <h4>Correo:</h4>
                   </div>
-                 <input style={{width:"200px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.email} disabled />
+                 <input style={{width:"200px",height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.email} disabled />
                  </div>
         
                  <div className="container-date">
@@ -49,7 +49,7 @@ const Profile = ()=>{
 
                  <h4>Se registro el dia:</h4>
                   </div>
-                 <input style={{width:"200px", margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE" }} type="text" value={new Date(userData.date).toLocaleDateString()} disabled />
+                 <input style={{width:"200px", height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE" }} type="text" value={new Date(userData.date).toLocaleDateString()} disabled />
                  </div>
                  <div className="container-btn-edit-profile">
                   <Button variant="warning" onClick={()=>{
