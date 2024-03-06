@@ -34,8 +34,18 @@ export const EmployeesContextProvider = ({children})=>{
     }
     const filterEmployee = async(employeeName,inputEmployee)=>{
       try {
-        const res = await filterEmployeeRequest(employeeName)
-        setListEmployees(res.data)
+        if(employeeName){
+          const res = await filterEmployeeRequest(employeeName)
+          setListEmployees(res.data)
+          inputEmployee.current.value = null
+          return
+        }
+        MySwal.fire({
+          title:"Escribe el empleado a buscar",
+          icon:"error"
+        })
+        return 
+        
       } catch (error) {
         await MySwal.fire({
           icon:"error",

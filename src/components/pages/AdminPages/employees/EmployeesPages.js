@@ -13,7 +13,7 @@ const MySwal = withReactContent(Swal)
 
 const EmployeesPage = ()=>{
     const [isLoading, setIsLoading] = useState(true)
-    const [employeeName,setEmployeeName] = useState("")
+    const [employeeName,setEmployeeName] = useState(null)
     const {getEmployees,listEmployees,deleteEmployees, filterEmployee} = useContext(employeesContext)
     const inputEmployee = useRef()
     const navigate = useNavigate()
@@ -45,12 +45,7 @@ const EmployeesPage = ()=>{
      
  },[isLoading, listEmployees])
 
- useEffect(()=>{
-    const searchEmployee = async()=>{
-            await filterEmployee(employeeName,inputEmployee)
-    }
-    searchEmployee()
- },[employeeName])
+
 
 
     return (
@@ -65,7 +60,10 @@ const EmployeesPage = ()=>{
                         <input ref={inputEmployee} type="text" placeholder="Busca un empleado por su nombre" onChange={(e)=>{
                             setEmployeeName(e.target.value)
                         }} />
-                      
+                      <Button variant="warning" style={{color:"#ffffff",height:"35px"}} onClick={async()=>{
+                     await filterEmployee(employeeName, inputEmployee)
+                     
+                    }} >Buscar</Button>
                     </div>
                 </div>
                 <div className="table-container-employees">

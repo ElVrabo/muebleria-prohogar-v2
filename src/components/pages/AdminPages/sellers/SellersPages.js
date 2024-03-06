@@ -35,12 +35,6 @@ const SellersPages = ()=>{
        
     },[isLoading,listSellers])
 
-    useEffect(()=>{
-      const searchSellers = async ()=>{
-        await filterSellers(sellerName,inputSeller)
-      }
-      searchSellers()
-    },[sellerName])
 
    const showAlert=async()=>{
     const result = await MySwal.fire({
@@ -69,10 +63,10 @@ const SellersPages = ()=>{
                     <input ref={inputSeller} type="text" placeholder="Busca un proveedor en especifico" value={sellerName} onChange={(e)=>{
                         setSellerName(e.target.value)
                     }} />
-                    {/* <Button variant="warning" style={{color:"#ffffff",height:"35px"}} onClick={async()=>{
-                     await filterSellers(sellerName)
-                     inputSeller.current.value = ''
-                    }} >Buscar</Button> */}
+                    <Button variant="warning" style={{color:"#ffffff",height:"35px"}} onClick={async()=>{
+                     await filterSellers(sellerName, inputSeller)
+                     
+                    }} >Buscar</Button>
                 </div>
             </div>
            <div className="table-container-sellers" >

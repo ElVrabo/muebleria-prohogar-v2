@@ -31,7 +31,10 @@
 .btn-search-product{
     width: 100px;
     height: 35px;
-    color: #fff;
+    color: #f4f2ee;
+}
+.btn-search-product:hover{
+color: #f4f2ee;
 }
 
 .table-products{

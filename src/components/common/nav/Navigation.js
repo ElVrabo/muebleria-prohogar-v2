@@ -31,12 +31,13 @@ export const Navigation = () => {
         </div>
         <div className="link-navigation" >
          <h5>Hola {userData.username}</h5>
-         
+          <Link to={HOME} className="links"  >Inicio</Link>
           <Link to={CATALOG} className="links" >Productos</Link>
           <Link to={CONTACT} className="links" >Contacto</Link>
-          <img style={{width:"40px", height:"40px", borderRadius:"50%"}} src={userData.avatar?`http://localhost:4000/api/${userData.avatar}`:iconProfile} alt="icono profile" onClick={()=>{
-            navigate(PROFILE)
-          }} />
+          <div className="profile-container" >
+          <img style={{width:"40px", height:"40px", borderRadius:"50%"}} src={userData.avatar?`http://localhost:4000/api/${userData.avatar}`:iconProfile} alt="icono profile"  />
+          <Link to={PROFILE} className="link-profile" >Mi cuenta</Link>
+          </div>
            <div className="icon-cart">
            <img src={iconCart} onClick={()=>{
           navigate(SHOPPINGCART)

@@ -34,12 +34,7 @@ const ProductsPages = ()=>{
     }
     },[isLoading,listProductsOnSale])
 
-    useEffect(()=>{
-      const searchProducts = async()=>{
-        await filterProductsName(productName,inputProduct)
-      }
-      searchProducts()
-    },[productName])
+  
 
     const showAlert = async()=>{
       const result = await MySwal.fire({
@@ -72,10 +67,10 @@ return (
             /*Todo lo que escribamos en el input se convertia a minusculas*/ 
             setProductName(e.target.value)
           }}/>
-          {/* <Button variant="warning" className="btn-search-product" onClick={()=>{
-             filterProductsName(searchProduct)
-             inputProduct.current.value = ''
-          }}>Buscar</Button> */}
+          <Button variant="warning" className="btn-search-product" onClick={async ()=>{
+             await filterProductsName(productName, inputProduct)
+             
+          }}>Buscar</Button>
         </div>
         <div className="table-container-products" >
         <Table className="table-products" responsive="sm" >

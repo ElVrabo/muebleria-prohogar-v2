@@ -34,8 +34,17 @@ export const SellersContextProvider = ({children})=>{
    }
    const filterSellers = async (sellerName,inputSeller) => {
    try {
-    const res = await filterSellersRequest(sellerName)
-    setListSellers(res.data)
+    if(sellerName){
+        const res = await filterSellersRequest(sellerName)
+        setListSellers(res.data)
+        inputSeller.current.value = null
+        return 
+    }
+    MySwal.fire({
+        title:"Escribe el proveedor a buscar",
+        icon:"error"
+    })
+    
    } catch (error) {
     
     await MySwal.fire({

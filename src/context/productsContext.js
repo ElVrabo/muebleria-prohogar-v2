@@ -128,15 +128,28 @@ try {
     }
     const filterProductsName = async(productName,inputProduct) =>{
       try {
+       if(productName){
         const res = await filterProductsNameRequest(productName)
         setListProductsOnSale(res.data)
+        inputProduct.current.value = null
+        return
+       }
+       MySwal.fire({
+        title:"Escibe el producto a buscar",
+        icon:"error"
+       })
+       return
         
       } catch (error) {
         await MySwal.fire({
           title:error.response.data.error,
           icon:'error'
         })
-        inputProduct.current.value = null
+        if(inputProduct){
+          inputProduct.current.value = null
+          return
+        }
+       
       
       }
     }
