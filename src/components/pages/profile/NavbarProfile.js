@@ -10,8 +10,8 @@ const NavbarProfile = ()=>{
            <nav className="navbar-profile">
             
             <Link to={PROFILE} style={{textDecoration:"none",color:"#FAB125"}} >Informacion</Link>
-            <Link  style={{textDecoration:"none",color:"#FAB125"}} onClick={()=>{
-                logout()
+            <Link  style={{textDecoration:"none",color:"#FAB125"}} onClick={async ()=>{
+                await logout()
             }}>Cerrar sesion</Link>
           </nav>
         </>

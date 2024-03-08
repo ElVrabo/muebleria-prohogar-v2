@@ -10,7 +10,7 @@ const ProductsCard = ({product,key}) =>{
         <>
         <Link  to={`/catalog/${product._id}`} style={{textDecoration:"none",color:"black"}}>
         <div key={key} className="body-products" >
-            <img src={`http://localhost:4000/api/${product.image}`} alt="imagen del producto" />
+            <img src={`https://api-dashboard-v8.vercel.app/api/${product.image}`} alt="imagen del producto" />
             <h2>{product.name[0].toUpperCase() + product.name.slice(1).toLowerCase()}</h2>
             <p>{product.description}</p>
             <h4>${product.price}</h4>

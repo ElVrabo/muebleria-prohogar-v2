@@ -15,7 +15,10 @@ export const EmployeesContextProvider = ({children})=>{
     }
     const createEmployees = (data)=>{
         createEmployeeRequest(data).then((response)=>{
-            console.log(response.data.message)
+            MySwal.fire({
+              title:response.data.message,
+              icon:"success"
+            })
         }).catch((error)=>console.log(error.response.data.error))
     }
     const deleteEmployees = (id)=>{

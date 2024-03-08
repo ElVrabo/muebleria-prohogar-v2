@@ -34,10 +34,6 @@ const FormAddEmployees = ()=>{
          rol:employeeData.rol
         }
         await createEmployees(employee)
-        MySwal.fire({
-            title:"Se agrego correctamente el empleado",
-            icon:"success"
-        })
         setEmployeeData({...employeeData, username:null})
         setEmployeeData({...employeeData, age:null})
         setEmployeeData({...employeeData, phone:null})

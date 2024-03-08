@@ -27,7 +27,7 @@ const Profile = ()=>{
           <NavbarProfile/>
           <div className="container-about-user">
             <div className="body-about-user">
-                <img src={userData.avatar ? `http://localhost:4000/api/${userData.avatar}`: iconProfile} alt="icon-profile" style={{height:"90px", width:"90px",borderRadius:"50%",border:"1px solid black"}}/>
+                <img src={userData.avatar ? `https://api-dashboard-v6.vercel.app/api/${userData.avatar}`: iconProfile} alt="icon-profile" style={{height:"90px", width:"90px",borderRadius:"50%",border:"1px solid black"}}/>
                 
                 <div className="container-username">
                   <div className="username">

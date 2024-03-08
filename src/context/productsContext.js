@@ -26,9 +26,16 @@ export const ProductsContextProvider = ({children})=>{
     const addProducts = async(data)=>{
       try {
        const res = await addProductsRequest(data)
-      
+       MySwal.fire({
+        title:"El producto se agrego al carrito",
+        icon:"success"
+    })
       } catch (error) {
-      
+      console.log(error.response.data.message)
+      MySwal.fire({
+        title:"No se pudo agregar el producto",
+        icon:"error"
+      })
       }
    
        }
@@ -123,7 +130,10 @@ try {
           icon:"success"
          })
       } catch (error) {
-      
+      MySwal.fire({
+        title:error.response.data,
+        icon:"error"
+      })
       }
     }
     const filterProductsName = async(productName,inputProduct) =>{

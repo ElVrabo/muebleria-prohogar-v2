@@ -77,6 +77,7 @@ const SellersPages = ()=>{
           <th>Razon_social</th>
           <th>Ubicacion</th>
           <th>Telefono</th>
+          <th>Correo</th>
           <th>Rfc</th>
           <th>Fecha</th>
           <th>Acciones</th>
@@ -88,6 +89,7 @@ const SellersPages = ()=>{
         <td>{seller.razon_social}</td>
         <td>{seller.address}</td>
         <td>{seller.number}</td>
+        <td>{seller.gmail}</td>
         <td>{seller.rfc}</td>
         <td>{new Date(seller.date).toLocaleDateString()}</td>
         <td style={{display:"flex",gap:"5px"}}>

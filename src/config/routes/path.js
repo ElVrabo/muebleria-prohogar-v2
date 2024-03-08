@@ -1,9 +1,9 @@
-export const REGISTER = "/"
+export const REGISTER = "/register"
 export const LOGIN="/login"
 export const HOME = "/home";
 export const CATALOG = "/catalog"
 export const CATALOGID = "/catalog/:ProductID"
-export const LOGINADMIN = "/formadmin"
+export const LOGINADMIN = "/"
 export const DASHBOARD = "/dashboard"
 export const PROFILE = "/profile"
 export const EDITPROFILE = "/profile/:userID"

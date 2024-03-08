@@ -35,7 +35,7 @@ export const Navigation = () => {
           <Link to={CATALOG} className="links" >Productos</Link>
           <Link to={CONTACT} className="links" >Contacto</Link>
           <div className="profile-container" >
-          <img style={{width:"40px", height:"40px", borderRadius:"50%"}} src={userData.avatar?`http://localhost:4000/api/${userData.avatar}`:iconProfile} alt="icono profile"  />
+          <img style={{width:"40px", height:"40px", borderRadius:"50%"}} src={userData.avatar?`https://api-dashboard-v8.vercel.app/api/${userData.avatar}`:iconProfile} alt="icono profile"  />
           <Link to={PROFILE} className="link-profile" >Mi cuenta</Link>
           </div>
            <div className="icon-cart">

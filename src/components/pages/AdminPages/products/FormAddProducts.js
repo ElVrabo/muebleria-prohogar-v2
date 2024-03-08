@@ -20,7 +20,7 @@ const FormAddProducts = ()=>{
     const {addProductsOnSale,getProductOnSale,editProductsOnSale} = useContext(productsContext)
     const {register,handleSubmit,reset,setValue} = useForm()
     const {id} = useParams()
-    const inputFile = useRef()
+    
 
     useEffect(()=>{
         const loadProduct = async ()=>{
@@ -49,13 +49,9 @@ const FormAddProducts = ()=>{
         que se le asignaran a ese producto*/ 
         if(id){
             const formData = new FormData()
-            formData.append('image',image)
             formData.append('name',value.name)
             formData.append('price',value.price)
             formData.append('description',value.description)
-            formData.append('specifications[0]',value.specifications[0])
-            formData.append('specifications[1]',value.specifications[1])
-            formData.append('specifications[2]',value.specifications[2])
             formData.append('stock',value.stock)
             formData.append('category',value.category)
             /*Se activa un spinner mientras se hace la peticion post, ya que la funcion es asincrona
@@ -67,16 +63,13 @@ const FormAddProducts = ()=>{
         }else{
             /*Si no hay ningun parametro, es pq se creara un productos*/ 
         const formData = new FormData()
-        formData.append('image',image)
+        
         formData.append('name',value.name)
         formData.append('price',value.price)
         formData.append('description',value.description)
-        formData.append('specifications[0]',value.specifications[0])
-        formData.append('specifications[1]',value.specifications[1])
-        formData.append('specifications[2]',value.specifications[2])
         formData.append('stock',value.stock)
         formData.append('category',value.category)
-        if(!image || !value.name || !value.price || !value.description || !value.specifications.length || !value.stock || !value.category ){
+        if(  !value.name || !value.price || !value.description  || !value.stock || !value.category ){
             await MySwal.fire({
                 title:"Debes rellenar todos los campos",
                 icon:"error"
@@ -95,9 +88,7 @@ const FormAddProducts = ()=>{
         }
         
     })
-    const uploadImageProduct=()=>{
-        inputFile.current.click()
-    }
+    
     return (
         <>
         <div className="container-grid" >
@@ -111,25 +102,6 @@ const FormAddProducts = ()=>{
         {/*encType="multipart/form-data" permite la carga de archivos, es fundamental para que
         el navegador entienda que el formulario puede contener datos binarios (como archivos)*/ }
         <form className="form-add-products" onSubmit={addNewProduct} encType="multipart/form-data">
-            <div className="input-upload-image">
-            <input ref={inputFile} type="file"  onChange={(e)=>{
-                /*e.target.files es un objeto FileList, que es una lista de objetos File, cada objeto
-                en la lista representa un archivo seleccionado por el usuario*/
-                const files = e.target.files
-                if(files.length>0){
-                    /*Se accede al primer archivo de la lista de archivos seleccionados*/ 
-                const selectedFile = files[0]
-                /*actualiza el estado image con el archivo que el usuario este seleccionando*/ 
-                setImage(selectedFile)
-                }else{
-                    setImage(null)
-                }
-            }} />
-            </div>
-            
-            <div className="icon-upload-image" >
-             <img src={iconUploadImage} alt="subir imagen" onClick={uploadImageProduct} />
-            </div>
             <div className="container-product-price" >
             <div className="product" >
             <label>Producto</label>
@@ -152,12 +124,7 @@ const FormAddProducts = ()=>{
             se le pone 0,1 y 2, para referirse al valor de cada input
             si solo pusieramos specifications, solo se guardaria un valor
             ya que no estamos indicando que valor corresponde a cada posicion del array*/ }
-            <label>Caracteristica 1</label>
-            <input className="specifications"  {...register('specifications[0]',{onChange:(e)=>e.target.value=e.target.value.toLowerCase()})} type="text" />
-            <label>Caracteristica 2</label>
-            <input className="specifications"  {...register('specifications[1]',{onChange:(e)=>e.target.value=e.target.value.toLowerCase()})} type="text" />
-            <label>Caracteristica 3</label>
-            <input className="specifications"  {...register('specifications[2]',{onChange:(e)=>e.target.value=e.target.value.toLowerCase()})} type="text" />
+           
             <label>Disponibles</label>
             <input className="specifications"  {...register('stock')} type="number" />
             <label>Categoria</label>

@@ -19,7 +19,7 @@ const ProductsCard = ({product,key,currentPriceProduct})=>{
         <>
          <div key={key} className="body-list-products-cart" >
             <div className="img-product-cart" >
-               <img src={`http://localhost:4000/api/${product.image}`} />
+               <img src={`https://api-dashboard-v6.vercel.app/api/${product.image}`} />
                <h5>{product.description}</h5> 
             </div>
            <div className="unity-product-cart">

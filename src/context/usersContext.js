@@ -3,6 +3,8 @@ import { addAddressUserRequest, changePasswordRequest, editProfileRequest, getUs
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
+import { HOME, LOGIN } from "../config/routes/path";
 const MySwal = withReactContent(Swal)
 
 export const userContext = createContext()
@@ -12,30 +14,40 @@ export const UserContextProvider = ({children})=>{
     const [userData,setUserData] = useState()
     const [incorrectPassword,setIncorrectPassword] = useState()
     const [loading,setLoading] = useState(true)
+    const navigate = useNavigate()
     
  
     const registerUser = async(data)=>{
         try {
-            const res = await registerUserRequest(data)
-            setUserData(res.data)
-            setIsAuth(true)
+                const res = await registerUserRequest(data)
+                navigate(LOGIN)
+              
         } catch (error) {
-            
+            await MySwal.fire({
+                title:error.response.data,
+                icon:"error"
+            })
         }
     }
     const loginUser = async(data)=>{
 try {
     const res = await loginUserRequest(data)
-    setUserData(res.data)
-    setIsAuth(true)
-    
+        setUserData(res.data)
+        setIsAuth(true)
+        setLoading(false)
+        navigate(HOME)
+        
+      
 } catch (error) {
+    await MySwal.fire({
+        title:error.response.data,
+        icon:"error"
+    })
     setUserData(null)
-    setIncorrectPassword(error.response.data)
     setIsAuth(false)
 }
     }
-    const logout = ()=>{
+    const logout =  ()=>{
         /*Elimina la cookie token del navegador*/
          Cookies.remove('token')
         /*No esta autenticado el usuario*/ 
@@ -56,7 +68,7 @@ try {
             })
             }
         } catch (error) {
-    console.log('ocurrio el error', error.response.data.error)
+    
         }
     }
     const getUser = async(id)=>{
@@ -94,14 +106,18 @@ try {
   async function checkLogin(){
     /*se obtienen todas las cookies del navegador*/
     const cookies = Cookies.get()
+    // console.log(cookies.token)
     
     /*si no hay ninguna cookies llamada token, quiere decir que no esta autenticado el usuario*/ 
     if(!cookies.token){
         /*No esta autenticado el usuario*/ 
         setIsAuth(false)
         setUserData(null)
+        console.log('No hay ninguna cookies llamada token')
         /*termina la verificacion de autenticacion*/ 
         setLoading(false)
+        
+        
     }
     
     try {
@@ -120,11 +136,13 @@ try {
         refresque la pagina se seguiran viendo los datos del usuario*/ 
         setIsAuth(true)
         setUserData(res.data)
+        console.log(res.data.message)
         /*termina la verificacion de autenticacion*/ 
         setLoading(false)
     } catch (error) {
         setIsAuth(false)
         setUserData(null)
+        console.log(error.response.data.message)
         setLoading(false)
     }
   }

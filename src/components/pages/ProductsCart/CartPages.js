@@ -6,11 +6,10 @@ import { Button } from "react-bootstrap"
 
 
 const CartPages = ()=>{
-  const [isLoading,setIsLoading] = useState()
+  const [isLoading,setIsLoading] = useState(true)
     const {getProducts,listProductsCart,totalPrice,totalPriceProducts} = useContext(productsContext)
     useEffect(()=>{
       const loadProductsCart = async()=>{
-        setIsLoading(true)
         await getProducts()
         setIsLoading(false)
     }

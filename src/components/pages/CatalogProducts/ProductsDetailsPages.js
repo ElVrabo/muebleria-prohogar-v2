@@ -13,7 +13,7 @@ const MySwal = withReactContent(Swal)
 
 const ProductsDetailsPages = ()=>{
     const [productSelected,setProductSelected] = useState()
-    const {getProductOnSale,getProductsOnSale,listProductsOnSale,addProducts,createReview } = useContext(productsContext)
+    const {getProductOnSale,addProducts,createReview } = useContext(productsContext)
     const {register,handleSubmit,reset} = useForm()
     const {ProductID} = useParams()
     const navigate = useNavigate()
@@ -27,15 +27,12 @@ const ProductsDetailsPages = ()=>{
         loadProduct()
 
     },[])
-    useEffect(()=>{
-        getProductsOnSale()
-    },[])
     return (
         <>
         {productSelected&&(
             <div className="container-details-product">
                 <div className="body-details-product" >
-            <img className="image-product" src={`http://localhost:4000/api/${productSelected.image}`}  />
+            <img className="image-product" src={`https://api-dashboard-v8.vercel.app/api/${productSelected.image}`}  />
             <div className="details-products">
             <h1 >{productSelected.name[0].toUpperCase() + productSelected.name.slice(1).toLowerCase()}</h1>
                   <h4>${productSelected.price}</h4>
@@ -53,10 +50,6 @@ const ProductsDetailsPages = ()=>{
             }} >Comprar ahora</Button>
             <Button variant="light" className="btn-add-to-cart" onClick={async()=>{
                 await addProducts(productSelected)
-                MySwal.fire({
-                    title:"El producto se agrego al carrito",
-                    icon:"success"
-                })
             }} >Agregar al carrito</Button>
            
             </div>

@@ -68,7 +68,7 @@ const EditProfilePages = ()=>{
                 }} />
               </div>
               <div className="icon-user"  >
-                <img src={userData.avatar? `http://localhost:4000/api/${userData.avatar}`:iconProfile} alt="icono de usuario" onClick={handleIconClick} />
+                <img src={userData.avatar? `https://api-dashboard-v6.vercel.app/api/${userData.avatar}`:iconProfile} alt="icono de usuario" onClick={handleIconClick} />
               </div>
                 <input type="text" {...register('username')} />
                 <input type="text" {...register('email')} />
