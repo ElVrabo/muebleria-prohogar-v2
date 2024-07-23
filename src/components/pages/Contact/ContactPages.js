@@ -1,7 +1,7 @@
 import "./contactPages.css"
-import InputText from "../../common/inputs/InputText.tsx"
+// import InputText from "../../common/inputs/InputText.tsx"
 import { Navigation } from "../../common/nav/Navigation.js"
-import { Button } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import React, { useEffect, useRef, useState } from "react"
 import emailjs from '@emailjs/browser'
 import Swal from "sweetalert2";
@@ -44,23 +44,23 @@ const ContactPages = ()=>{
         <>
         <Navigation/>
         <div className="container-form-contact" >
-            <form ref={form} className="form-contact" onSubmit={sendEmail} >
+            <Form ref={form} className="form-contact" onSubmit={sendEmail} >
                     <div className="email">
-                        <label>Tu email</label>
-                        <input ref={inputEmail} type="email" className="input-email" name="from_email"  />
+                        <Form.Label>Tu email</Form.Label>
+                        <Form.Control ref={inputEmail} type="email" className="input-email" name="from_email"  />
                     </div>
                     <div className="username">
-                        <label>Tu nombre</label>
-                        <input ref={inputName} type="text" name="from_user" className="input-username" />
+                        <Form.Label>Tu nombre</Form.Label>
+                        <Form.Control ref={inputName} type="text" name="from_user" className="input-username" />
                     </div>
                 <div className="message">
-                    <label>Tu mensaje</label>
-                    <textarea ref={inputMessage} name="mensaje" className="input-message" ></textarea>
+                    <Form.Label>Tu mensaje</Form.Label>
+                    <Form.Control ref={inputMessage} name="mensaje" className="input-message" ></Form.Control>
                 </div>
                 <div className="container-btn-send">
                     <Button variant="warning" style={{color:"white"}} type="submit" >Enviar</Button>
                 </div>
-            </form>
+            </Form>
         </div>
         </>
     )

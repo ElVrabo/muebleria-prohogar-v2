@@ -110,41 +110,41 @@ try {
     
     /*si no hay ninguna cookies llamada token, quiere decir que no esta autenticado el usuario*/ 
     if(!cookies.token){
+        console.log('No hay ninguna cookie llamada token')
         /*No esta autenticado el usuario*/ 
         setIsAuth(false)
         setUserData(null)
-        console.log('No hay ninguna cookies llamada token')
         /*termina la verificacion de autenticacion*/ 
         setLoading(false)
-        
-        
-    }
-    
-    try {
-        /*si si hay token, se va enviar ese token al servidor para que lo verifique*/ 
-        const res = await verifyTokenRequest(cookies.token)
-        /*si el servidor no responde nada quiere decir que el token es invalido y el usuario
-        no esta autenticado*/ 
-        if(!res.data){
+    }else{
+        try {
+            /*si si hay token, se va enviar ese token al servidor para que lo verifique*/ 
+            const res = await verifyTokenRequest(cookies.token)
+            /*si el servidor no responde nada quiere decir que el token es invalido y el usuario
+            no esta autenticado*/ 
+            if(!res.data){
+                setIsAuth(false)
+                setUserData(null)
+                setLoading(false)
+                return
+            } else{
+                /*Si responde algo el servidor quiere decir que el usuario si esta autenticado, y se
+            establecen los datos de ese usuario en userData e isAuth es true, con esto cada que se
+            refresque la pagina se seguiran viendo los datos del usuario*/ 
+            setIsAuth(true)
+            setUserData(res.data)
+            /*termina la verificacion de autenticacion*/ 
+            setLoading(false)
+            }
+          
+        } catch (error) {
             setIsAuth(false)
             setUserData(null)
             setLoading(false)
-            return
-        } 
-        /*Si responde algo el servidor quiere decir que el usuario si esta autenticado, y se
-        establecen los datos de ese usuario en userData e isAuth es true, con esto cada que se
-        refresque la pagina se seguiran viendo los datos del usuario*/ 
-        setIsAuth(true)
-        setUserData(res.data)
-        console.log(res.data.message)
-        /*termina la verificacion de autenticacion*/ 
-        setLoading(false)
-    } catch (error) {
-        setIsAuth(false)
-        setUserData(null)
-        console.log(error.response.data.message)
-        setLoading(false)
+        }
     }
+    
+   
   }
   checkLogin()
     },[])

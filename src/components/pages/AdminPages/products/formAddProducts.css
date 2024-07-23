@@ -12,6 +12,8 @@
     grid-column: span 9;
     display: flex;
     justify-content: center;
+    align-items: center
+    ;
 }
 
 .form-add-products{
@@ -88,6 +90,12 @@ height: 50px;
 .select-category option{
     text-align: center;
     
+}
+.container-file{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 @media  (max-width:768px){

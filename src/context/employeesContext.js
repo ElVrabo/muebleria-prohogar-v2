@@ -8,10 +8,13 @@ export const employeesContext = createContext()
 
 export const EmployeesContextProvider = ({children})=>{
     const [listEmployees,setListEmployees] = useState([])
-    const getEmployees = ()=>{
-        getEmployeesRequest().then((response)=>{
-          setListEmployees(response.data)
-        }).catch((error)=>console.log(error.response.data.error))
+    const getEmployees = async ()=>{
+      try {
+        const res = await getEmployeesRequest()
+        setListEmployees(res.data)
+      } catch (error) {
+        console.log('Ocurrio el siguiente error: ', error)
+      }
     }
     const createEmployees = (data)=>{
         createEmployeeRequest(data).then((response)=>{

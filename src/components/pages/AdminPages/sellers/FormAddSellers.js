@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { sellersContext } from "../../../../context/sellersContext"
 import SideBar from "../../../common/sideBar/SideBar"
 import { Button } from "react-bootstrap"
+import Form from 'react-bootstrap/Form';
 
 const FormAddSellers = ()=>{
     const {addSellers} = useContext(sellersContext)
@@ -21,37 +22,37 @@ const FormAddSellers = ()=>{
                 <SideBar/>
             </div>
             <div className="grid-form-add-provider" >
-           <form className="form-provider-products" onSubmit={createSeller} >
+           <Form className="form-provider-products" onSubmit={createSeller} >
                 <div className="inputs-form-provider-products" >
                 <div className="container-name-razon-social">
                     <div className="provider-name">
-                     <label>Provedor</label>
-                    <input type="text" {...register('name')} />
+                     <Form.Label>Provedor</Form.Label>
+                    <Form.Control type="text" {...register('name')} />
                     </div>
                     <div className="razon-social" >
-                        <label>Razon social</label>
-                     <input type="text" {...register('razon_social')} />
+                        <Form.Label>Razon social</Form.Label>
+                     <Form.Control type="text" {...register('razon_social')} />
                     </div>
                 </div>
                 <div className="container-address-number" >
                     <div className="address">
-                        <label>Direccion</label>
-                        <input type="text" {...register('address')} />
+                        <Form.Label>Direccion</Form.Label>
+                        <Form.Control type="text" {...register('address')} />
                     </div>
                     <div className="number" >
-                        <label>Telefono</label>
-                        <input type="text" {...register('number')} />
+                        <Form.Label>Telefono</Form.Label>
+                        <Form.Control type="text" {...register('number')} />
                     </div>
                 </div>
                 
                 <div className="container-rfc-gmail">
                     <div className="rfc">
-                        <label>Rfc</label>
-                        <input type="text" {...register('rfc')} />
+                        <Form.Label>Rfc</Form.Label>
+                        <Form.Control type="text" {...register('rfc')} />
                     </div>
                     <div className="gmail" >
-                        <label>Correo</label>
-                        <input type="text" {...register('gmail')} />
+                        <Form.Label>Correo</Form.Label>
+                        <Form.Control type="text" {...register('gmail')} />
                     </div>
                 </div>
               
@@ -60,7 +61,7 @@ const FormAddSellers = ()=>{
                 <Button variant="warning" type="submit" style={{color:"#ffffff"}} >Agregar proveedor</Button>
                 </div>
                 </div>
-            </form>
+            </Form>
            
           
             </div>

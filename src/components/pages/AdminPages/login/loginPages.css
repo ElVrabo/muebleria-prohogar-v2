@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container-form-admin img{
+    height: 100px;
+    width: 200px;
 }
 
 .form-admin{
@@ -14,18 +20,18 @@
     align-items: center;
     justify-content: center;
     margin-top: 25px;
+    gap: 5px;
 }
 
 .form-admin input{
     width: 750px;
     border-radius: 5px;
-    background-color: #f4f2ee;
-    border: 1px solid #f4f2ee;
+   
     height: 35px;
 }
 
 .form-admin Button{
-    width: 750px;
+    width: 500px;
     color: #f4f2ee;
 }
 
@@ -40,6 +46,10 @@
 } */
 
 @media (max-width:760px){
+    .container-form-admin img{
+        height: 100px;
+        width: 120px;
+    }
 .form-admin{
     width: 90%;
 }
@@ -47,6 +57,6 @@
     width: 80%;
 }
 .form-admin Button{
-    width: 80%;
+    width: 50%;
 }
 }

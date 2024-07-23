@@ -13,7 +13,7 @@ const MySwal = withReactContent(Swal)
 
 const ProductsDetailsPages = ()=>{
     const [productSelected,setProductSelected] = useState()
-    const {getProductOnSale,addProducts,createReview } = useContext(productsContext)
+    const {getProductOnSale,addProducts } = useContext(productsContext)
     const {register,handleSubmit,reset} = useForm()
     const {ProductID} = useParams()
     const navigate = useNavigate()
@@ -32,21 +32,18 @@ const ProductsDetailsPages = ()=>{
         {productSelected&&(
             <div className="container-details-product">
                 <div className="body-details-product" >
-            <img className="image-product" src={`https://api-dashboard-v8.vercel.app/api/${productSelected.image}`}  />
+            <img className="image-product" src={productSelected.image}  />
             <div className="details-products">
             <h1 >{productSelected.name[0].toUpperCase() + productSelected.name.slice(1).toLowerCase()}</h1>
                   <h4>${productSelected.price}</h4>
-                  <p >{productSelected.description}</p>
                   <h5>Mas detalles de este producto</h5>
                   <ul>
-                    <li >{productSelected.specifications[0]}</li>
-                    <li >{productSelected.specifications[1]}</li>
-                    <li >{productSelected.specifications[2]}</li>
+                   <li>{productSelected.description}</li>
                   </ul>
                   <div className="btns-product">
             <Button variant="warning" className="btn-buy" onClick={()=>{
-                navigate(`/formAddAddress/${productSelected._id}`)
-                //  paymentRequest(productSelected).then((res)=>window.location.href=res.data.response.body.init_point)
+                
+                 paymentRequest(productSelected).then((res)=>window.location.href=res.data.init_point)
             }} >Comprar ahora</Button>
             <Button variant="light" className="btn-add-to-cart" onClick={async()=>{
                 await addProducts(productSelected)

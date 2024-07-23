@@ -36,10 +36,11 @@
     width: 200px;
 }
 .container-about-user{
-    margin-top: 40px;
+    /* margin-top: 40px; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
 }
 .body-about-user{
@@ -72,6 +73,10 @@ color: #f4f2ee;
     .body-about-user{
         width: 95%;
         height: auto;
+      
+    }
+    .body-about-user img{
+        margin-top: 20px;
     }
     .container-username{
         display: flex;

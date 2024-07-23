@@ -2,8 +2,9 @@ import { Button } from "react-bootstrap"
 import "./productsCard.css"
 import React,{ useContext,useEffect,useState } from "react"
 import { productsContext } from "../../../context/productsContext"
-
-
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal)
 
 /*El componenete recibe product y key de la interface ProductCardProps*/ 
 const ProductsCard = ({product,key,currentPriceProduct})=>{

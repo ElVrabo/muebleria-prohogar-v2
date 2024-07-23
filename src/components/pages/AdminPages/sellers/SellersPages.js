@@ -54,17 +54,18 @@ const SellersPages = ()=>{
     return (
         <>
        <div className="container-grid" >
-        <div className="grid-sidebar">
+        <div className="grid-sidebars">
             <SideBar/>
         </div>
         <div className="grid-table-providers">
             <div className="container-search-provider" >
                 <div className="input-search-provider" >
-                    <input ref={inputSeller} type="text" placeholder="Busca un proveedor en especifico" value={sellerName} onChange={(e)=>{
+                    <input ref={inputSeller} type="text" placeholder="Busca un proveedor"  onChange={(e)=>{
                         setSellerName(e.target.value)
                     }} />
                     <Button variant="warning" style={{color:"#ffffff",height:"35px"}} onClick={async()=>{
-                     await filterSellers(sellerName, inputSeller)
+                     await filterSellers(sellerName)
+                     inputSeller.current.value = ''
                      
                     }} >Buscar</Button>
                 </div>
@@ -74,7 +75,7 @@ const SellersPages = ()=>{
       <thead>
         <tr>
           
-          <th>Razon_social</th>
+          <th>Empresa</th>
           <th>Ubicacion</th>
           <th>Telefono</th>
           <th>Correo</th>
@@ -86,14 +87,14 @@ const SellersPages = ()=>{
       <tbody>
        {listSellers.map((seller)=>(
         <tr key={seller._id}>
-        <td>{seller.razon_social}</td>
+        <td>{seller.name}</td>
         <td>{seller.address}</td>
         <td>{seller.number}</td>
         <td>{seller.gmail}</td>
         <td>{seller.rfc}</td>
         <td>{new Date(seller.date).toLocaleDateString()}</td>
         <td style={{display:"flex",gap:"5px"}}>
-            <img src={iconDelete} alt="icono de eliminar" onClick={async()=>{
+            <img src={iconDelete} className="icon-delete" alt="icono de eliminar" onClick={async()=>{
                 await deleteSellers(seller._id)
                 MySwal.fire({
                     title:"El proveedor se elimino correctamente",

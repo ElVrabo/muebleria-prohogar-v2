@@ -32,12 +32,11 @@ export const SellersContextProvider = ({children})=>{
         })
     }
    }
-   const filterSellers = async (sellerName,inputSeller) => {
+   const filterSellers = async (sellerName) => {
    try {
     if(sellerName){
         const res = await filterSellersRequest(sellerName)
         setListSellers(res.data)
-        inputSeller.current.value = null
         return 
     }
     MySwal.fire({
@@ -51,7 +50,6 @@ export const SellersContextProvider = ({children})=>{
         title:error.response.data.message,
         icon:"error"
     })
-    inputSeller.current.value = null
    }
    }
    const deleteSellers = async(id)=>{

@@ -1,7 +1,7 @@
 import "../../index.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from "react-router-dom";
-import { CATALOG, CATALOGID, CHANGEPASSWORDPAGES, CONTACT, CREATEEMPLOYEESPAGES, CREATEEMPLOYEESSPAGES, DASHBOARD, EDITEMPLOYEESPAGES, EDITPROFILE, EMPLOYEESPAGES, FAVORITEPRODUCTS, FORMADDADDRESS, FORMADDPRODUCTS, FORMADMIN, FORMLOGIN, FORMPROVIDERPRODUCTSPAGES, FORMREGISTER, HOME, LISTPROVIDERPRODUCTS, LOGIN, LOGINADMIN, MANAGEPRODUCTS, PROFILE, REGISTER, SHOPPINGCART } from "./path";
+import { CATALOG, CATALOGID, CHANGEPASSWORDPAGES, CONTACT, CREATEEMPLOYEESPAGES, CREATEEMPLOYEESSPAGES, DASHBOARD, EDITEMPLOYEESPAGES, EDITPROFILE, EMPLOYEESPAGES, ERRORPAY, FAVORITEPRODUCTS, FORMADDADDRESS, FORMADDPRODUCTS, FORMADMIN, FORMLOGIN, FORMPROVIDERPRODUCTSPAGES, FORMREGISTER, HOME, LISTPROVIDERPRODUCTS, LOGIN, LOGINADMIN, MANAGEPRODUCTS, PROFILE, REGISTER, SHOPPINGCART, SUCCESSPAY, SuccessPay } from "./path";
 import { Home } from "../../components/pages/Home/Home";
 import { UserContextProvider } from '../../context/usersContext';
 import { ProductsContextProvider } from '../../context/productsContext';
@@ -26,6 +26,8 @@ import FormAddEmployees from "../../components/pages/AdminPages/employees/FormAd
 import { EmployeesContextProvider } from "../../context/employeesContext.js";
 import EmployeesPage from "../../components/pages/AdminPages/employees/EmployeesPages.js";
 import { SellersContextProvider } from "../../context/sellersContext.js";
+import { SuccessPayment } from "../../components/pages/SuccessPayment/SuccessPayment.js";
+import { ErrorPayment } from "../../components/pages/ErrorPayment/ErrorPayment.js";
 
 function App() {
   return (
@@ -59,6 +61,8 @@ function App() {
       <Route path={CONTACT} element={<ContactPages/>} />
       <Route path={FORMADDADDRESS} element={<FormAddAdress/>} />
       <Route path={CHANGEPASSWORDPAGES} element={<ChangePassword/>} />
+      <Route path={SUCCESSPAY} element={<SuccessPayment/>} />
+      <Route path={ERRORPAY} element={<ErrorPayment/>} />
       </Route>
     </Routes>
       </EmployeesContextProvider>

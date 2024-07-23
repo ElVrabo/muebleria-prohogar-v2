@@ -10,8 +10,8 @@ const ProductsCard = ({product,key}) =>{
         <>
         <Link  to={`/catalog/${product._id}`} style={{textDecoration:"none",color:"black"}}>
         <div key={key} className="body-products" >
-            <img src={`https://api-dashboard-v8.vercel.app/api/${product.image}`} alt="imagen del producto" />
-            <h2>{product.name[0].toUpperCase() + product.name.slice(1).toLowerCase()}</h2>
+            <img src={product.image} alt="imagen del producto" />
+            <h2>{product.name[0].toUpperCase() + product.name.slice(1).toLowerCase()  }</h2>
             <p>{product.description}</p>
             <h4>${product.price}</h4>
             {/* <p>Este producto se agrego el: {new Date(product.date).toLocaleDateString()}</p> */}

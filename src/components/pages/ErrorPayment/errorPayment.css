@@ -1,0 +1,10 @@
+.container-error-payment{
+    background-color: red;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-error-payment{
+    color: #f4f2ee;
+}

@@ -1,17 +1,21 @@
 import { useState } from "react"
 import "./sideBar.css"
-import { Link } from "react-router-dom"
-import { CREATEEMPLOYEESPAGES, CREATEUSERSPAGES, EMPLOYEESPAGES, FORMADDPRODUCTS, FORMPROVIDERPRODUCTSPAGES, LISTPROVIDERPRODUCTS, MANAGEPRODUCTS } from "../../../config/routes/path"
+import { Link, useNavigate } from "react-router-dom"
+import { CREATEEMPLOYEESPAGES, CREATEUSERSPAGES, EMPLOYEESPAGES, FORMADDPRODUCTS, FORMPROVIDERPRODUCTSPAGES, LISTPROVIDERPRODUCTS, LOGINADMIN, MANAGEPRODUCTS } from "../../../config/routes/path"
 import iconEmployees from "../../../assets/icons/empleados.png"
 import iconProviders from "../../../assets/icons/paquetes.png"
 import iconProducts from "../../../assets/icons/agregar-producto.png"
 import iconSignOut from "../../../assets/icons/cerrar-sesion.png"
 const SideBar = ()=>{
+    // const [showModal,setShowModal] = useState(false)
     const [subMenuOpen,setSubMenuOpen] = useState({
         inventarioOpen:false,
         providerOpen:false,
         employeesOpen:false,
     })
+    const navigate = useNavigate()
+
+   
     return (
         <>
         <div className="title">
@@ -58,7 +62,9 @@ const SideBar = ()=>{
                 </div>
             )}
            <div className="container-logout">
-           <img className="icon-logout" src={iconSignOut} />
+           <img className="icon-logout" onClick={()=>{
+               navigate(LOGINADMIN)
+           }} src={iconSignOut} />
            <h6>Cerrar sesion</h6>
            </div>
          </div>

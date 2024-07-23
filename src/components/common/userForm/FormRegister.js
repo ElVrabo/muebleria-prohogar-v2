@@ -5,6 +5,8 @@ import { userContext } from "../../../context/usersContext"
 import { Link, useNavigate } from "react-router-dom"
 import {  LOGIN, LOGINADMIN } from "../../../config/routes/path"
 import { Button } from "react-bootstrap"
+import Form from 'react-bootstrap/Form';
+
 import logoProhogar from "../../../assets/images/logoProhogar-removebg-preview.png"
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -23,7 +25,7 @@ const FormRegister = ()=>{
     const {registerUser} = useContext(userContext)
     const navigate = useNavigate()
 
-    const register = async (e)=>{
+    const handleOnSubmit = async (e)=>{
         e.preventDefault()
         if(!userData.email || !userData.username || !userData.password){
           await MySwal.fire({
@@ -44,30 +46,34 @@ const FormRegister = ()=>{
         <>
         <div className="container_form_register">
             {/* <img src={logoProhogar} alt="logo de prohogar" style={{height:"150px",width:"200px",marginTop:"10px"}}/> */}
-            <form className="form_register" onSubmit={register}>
+            <Form className="form_register" onSubmit={handleOnSubmit}>
                
-                <h2 style={{marginTop:"15px", color:"#FAB125"}}>Crea tu cuenta</h2>
+                <h2 style={{marginTop:"15px", color:"black"}}>Crea tu cuenta</h2>
                 <div style={{display:"flex", gap:"10px"}}>
                     <p style={{color:"grey"}}>¿Ya tienes cuenta?</p>
                     <Link style={{textDecoration:"none", color:"#F48F0C"}} to={LOGIN}>Inicia sesion!</Link>
                 </div>
-                <label className="label_inputs">Email</label>
+                <Form.Group className="container-inputs-register" >
+                <Form.Label>Email</Form.Label>
          
-                <input className="input_email"  type="text" placeholder="Ingresa tu correo" onChange={(e)=>{
-                    setUserData({...userData,email:e.target.value})
-                }} />
-                
-                <label className="label_inputs">Username</label>
-                <input className="input_username" type="text" placeholder="Ingresa tu nombre de usuario" onChange={(e)=>{
-                    setUserData({...userData,username:e.target.value})
-                }} />
-                <label className="label_inputs">Password</label>
-                <input className="input_password"  type="password" placeholder="Crea una contraseña" onChange={(e)=>{
-                    setUserData({...userData,password:e.target.value})
-                }} />
-               <Button type="submit"  style={{width:"95%",margin:"14px", color:"#ffffff"}} variant="warning">Registrarme</Button>
-               <Link to={LOGINADMIN} style={{color:"#D86A07", textDecoration:"none"}}>¡Inicia sesion como administrador!</Link>
-            </form>
+         <Form.Control className="inputs"    type="text" placeholder="Ingresa tu correo" onChange={(e)=>{
+             setUserData({...userData,email:e.target.value})
+         }} />
+         
+         <Form.Label>Username</Form.Label>
+         <Form.Control className="inputs" type="text" placeholder="Ingresa tu nombre de usuario" onChange={(e)=>{
+             setUserData({...userData,username:e.target.value})
+         }} />
+         <Form.Label>Password</Form.Label>
+         <Form.Control className="inputs" type="password" placeholder="Crea una contraseña" onChange={(e)=>{
+             setUserData({...userData,password:e.target.value})
+         }} />
+        <div className="btns">
+        <Button className="btn-register" type="submit"  variant="warning">Registrarme</Button>
+        <Link to={LOGINADMIN} style={{color:"#D86A07", textDecoration:"none", textAlign:"center"}}>¡Inicia sesion como administrador!</Link>
+        </div>
+                </Form.Group>
+            </Form>
         </div>
         </>
     )

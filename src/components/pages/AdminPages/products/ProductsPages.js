@@ -76,10 +76,9 @@ return (
         <Table className="table-products" responsive="sm" >
       <thead>
         <tr>
-          
+          <th>Imagen</th>
           <th>Producto</th>
           <th>Precio</th>
-          <th>Descripcion</th>
           <th>Disponibles</th>
           <th>Categoria</th>
           <th>Fecha</th>
@@ -89,9 +88,11 @@ return (
       <tbody>
        {orderProductsByDate.map((product)=>(
         <tr key={product._id}>
+         <td>
+         <img className="img-product" src={product.image} alt="imagen del producto" />
+         </td>
         <td>{`${product.name}`.toLowerCase()}</td>
         <td>{product.price}</td>
-        <td>{product.description}</td>
         <td>{product.stock}</td>
         <td>{product.category}</td>
         <td>{new Date(product.date).toLocaleDateString()}</td>

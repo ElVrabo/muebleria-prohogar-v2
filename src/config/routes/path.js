@@ -1,9 +1,9 @@
 export const REGISTER = "/register"
-export const LOGIN="/login"
+export const LOGIN="/"
 export const HOME = "/home";
 export const CATALOG = "/catalog"
 export const CATALOGID = "/catalog/:ProductID"
-export const LOGINADMIN = "/"
+export const LOGINADMIN = "/loginAdmin"
 export const DASHBOARD = "/dashboard"
 export const PROFILE = "/profile"
 export const EDITPROFILE = "/profile/:userID"
@@ -19,3 +19,5 @@ export const CHANGEPASSWORDPAGES = '/changePassword'
 export const EMPLOYEESPAGES = '/employeesPages'
 export const CREATEEMPLOYEESPAGES = '/createEmployee'
 export const EDITEMPLOYEESPAGES = '/createEmployee/:id'
+export const SUCCESSPAY = '/successPayment'
+export const ERRORPAY = '/errorPayment'

@@ -1,6 +1,8 @@
 .container-details-product{
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .body-details-product{
     display: flex;
@@ -11,6 +13,7 @@
    background-color: #ffffff;
    border-radius: 10px;
    width: 90%;
+   height: 500px;
 }
 .image-product{
     width: 300px;

@@ -52,6 +52,9 @@ color: #f4f2ee;
     width: 40px;
     height: 40px;
 }
+.icon-products:hover{
+    cursor: pointer;
+}
 .container-providers{
     display: flex;
     align-items: center;
@@ -63,6 +66,9 @@ color: #f4f2ee;
 .icon-providers{
     width: 40px;
     height: 40px;
+}
+.icon-providers:hover{
+    cursor: pointer;
 }
 .container-icon-employees{
     display: flex;
@@ -76,6 +82,9 @@ color: #f4f2ee;
     width: 40px;
     height: 40px;
 }
+.icon-employees:hover{
+    cursor: pointer;
+}
 .container-logout{
     display: flex;
     align-items: center;
@@ -87,6 +96,9 @@ color: #f4f2ee;
 .icon-logout{
     width: 40px;
     height: 40px;
+}
+.icon-logout:hover{
+    cursor: pointer;
 }
 
 

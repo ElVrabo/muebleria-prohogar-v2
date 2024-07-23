@@ -10,6 +10,7 @@ const ModalComponent = ({functionShow,funtionOnHide,titleModal,bodyModal})=>{
         show={functionShow}
         onHide={funtionOnHide}
         aria-labelledby="example-modal-sizes-title-lg"
+        centered
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">

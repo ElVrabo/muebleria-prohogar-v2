@@ -4,7 +4,7 @@ import iconProfile from "../../../assets/images/Recurso 12.png"
 import NavbarProfile from "./NavbarProfile"
 import { useContext, useEffect } from "react"
 import { userContext } from "../../../context/usersContext"
-import { Button } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 
@@ -27,13 +27,15 @@ const Profile = ()=>{
           <NavbarProfile/>
           <div className="container-about-user">
             <div className="body-about-user">
-                <img src={userData.avatar ? `https://api-dashboard-v6.vercel.app/api/${userData.avatar}`: iconProfile} alt="icon-profile" style={{height:"90px", width:"90px",borderRadius:"50%",border:"1px solid black"}}/>
+                {userData.image ? (
+                  <img src={userData.image} alt="icon-profile" style={{height:"90px", width:"90px",borderRadius:"50%"}}/>
+                ):<img src={iconProfile} alt="icon-profile" style={{height:"90px", width:"90px",borderRadius:"50%"}}/>}
                 
                 <div className="container-username">
                   <div className="username">
                   <h4>Usuario: </h4>
                   </div>
-                <input style={{width:"200px",height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.username} disabled />
+                <Form.Control style={{width:"200px",height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.username} disabled />
                 </div>
                
                  <div className="container-email">
@@ -41,7 +43,7 @@ const Profile = ()=>{
 
                  <h4>Correo:</h4>
                   </div>
-                 <input style={{width:"200px",height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.email} disabled />
+                 <Form.Control style={{width:"200px",height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE"}} type="text" value={userData.email} disabled />
                  </div>
         
                  <div className="container-date">
@@ -49,7 +51,7 @@ const Profile = ()=>{
 
                  <h4>Se registro el dia:</h4>
                   </div>
-                 <input style={{width:"200px", height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE" }} type="text" value={new Date(userData.date).toLocaleDateString()} disabled />
+                 <Form.Control style={{width:"200px", height:"35px",margin:"0",borderRadius:"5px",border:"1px solid #F4F2EE" }} type="text" value={new Date(userData.date).toLocaleDateString()} disabled />
                  </div>
                  <div className="container-btn-edit-profile">
                   <Button variant="warning" onClick={()=>{

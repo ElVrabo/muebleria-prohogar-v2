@@ -16,27 +16,12 @@
    
 background-color: #ffffff;
 }
-.input_email{
-    width: 95%;
-    background-color: #f4f2ee;
-    border: 1px solid #f4f2ee;
+.container-inputs-register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.input_username{
-    /* height: 30px; */
-    width: 95%;
-    background-color: #f4f2ee;
-  }
-  .input_password{
-    /* height: 30px; */
-    width: 95%;
-    background-color: #f4f2ee;
-    border: 1px solid #f4f2ee;
-    border-radius: 5px;
-  }
-.label_inputs{
-    font-weight: 500;
-    color: #FAB125;
-}
+
 /* .input-text{
     width: 95%;
     height: 45px;
@@ -51,8 +36,32 @@ background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
 } */
 
+.btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.btn-register{
+    width: 300px;
+    margin-top: 20px;
+    color: #ffffff;
+}
+.btn-register:hover{
+    color:#ffffff
+}
+.inputs{
+    width: 400px;
+}
+
 @media only screen and (max-width: 600px) {
     .form_register{
         width: 95%;
+    }
+    .inputs{
+        width: 250px !important;
+    }
+    .btn-register{
+        width: 50%;
     }
 }

@@ -15,23 +15,28 @@
     margin-top: 30px;
 background-color: #ffffff;
 }
-.input_username{
-  /* height: 30px; */
-  width: 95%;
-  background-color: #f4f2ee;
-  border: 1px solid #f4f2ee;
-  border-radius: 5px;
+
+.btn-login Button{
+  width: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #ffffff;
+
 }
-.input_password{
-  /* height: 30px; */
-  width: 95%;
-  background-color: #f4f2ee;
-  border: 1px solid #f4f2ee;
-  border-radius: 5px;
+.btn-login Button:hover{
+  color: #ffffff;
 }
 
 @media only screen and (max-width: 600px) {
   .form_login{
     width: 95%;
   }
+  .inputs{
+    width: 250px !important;
+  }
+  .btn-login Button{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+ 
 }

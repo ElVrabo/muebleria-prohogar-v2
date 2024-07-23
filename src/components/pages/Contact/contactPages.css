@@ -1,6 +1,7 @@
 .container-form-contact{
     display: flex;
     justify-content: center;
+    align-items: center;
    height: 100vh;
 }
 .form-contact{
@@ -12,7 +13,7 @@
     background-color: #ffffff;
     border-radius: 10px;
     width: 500px;
-    height: auto;
+    height: 450px;
     gap: 10px;
 }
 .email{
@@ -22,8 +23,8 @@
 }
 .input-email{
     width: 400px;
-    background-color: #f4f2ee;
-    border: 1px solid #f4f2ee;
+    /* background-color: #f4f2ee; */
+    /* border: 1px solid #f4f2ee; */
     border-radius: 5px;
 }
 .username{
@@ -33,8 +34,8 @@
 }
 .input-username{
     width: 400px;
-    background-color: #f4f2ee;
-    border: 1px solid #f4f2ee;
+    /* background-color: #f4f2ee; */
+    /* border: 1px solid #f4f2ee; */
     border-radius: 5px;
 }
 .message{
@@ -45,8 +46,8 @@
 .input-message{
     width: 400px;
     height: 100px;
-    background-color: #f4f2ee;
-    border: 1px solid #f4f2ee;
+    /* background-color: #f4f2ee;
+    border: 1px solid #f4f2ee; */
     border-radius: 5px;
 }
 .container-btn-send{
@@ -55,7 +56,7 @@
     justify-content: center;
 }
 .container-btn-send Button{
-    width: 400px;
+    width: 200px;
 }
 
 @media only screen and (max-width:600px){
@@ -65,5 +66,17 @@
     }
   .input-email{
     width: 300px;
+  }
+  .form-contact{
+    display: flex !important; ;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 400px !important;
+  }
+  .input-email, .input-username, .input-message{
+    width: 300px !important;
+  }
+  .container-btn-send Button{
+    width: 200px;
   }
 }

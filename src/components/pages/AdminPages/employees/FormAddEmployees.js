@@ -3,6 +3,7 @@ import React, { useState,FormEvent, useContext, useRef } from "react"
 import { Button } from "react-bootstrap"
 import { employeesContext } from "../../../../context/employeesContext"
 import SideBar from "../../../common/sideBar/SideBar"
+import Form from 'react-bootstrap/Form';
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 const MySwal = withReactContent(Swal)
@@ -50,36 +51,41 @@ const FormAddEmployees = ()=>{
                 <SideBar/>
             </div>
            <div className="container-form-employees" >
-           <form onSubmit={submitEmployee} className="form-employees" >
+           <Form onSubmit={submitEmployee} className="form-employees" >
             <div className="container-labels">
             <div className="container-inputs" >
-            <label>Nombre del empleado</label>
-            <input ref={inputUser} type="text" onChange={(e)=>{
+            <Form.Label>Nombre del empleado</Form.Label>
+            <Form.Control ref={inputUser} type="text" onChange={(e)=>{
                 setEmployeeData({...employeeData,username:e.target.value})
             }} 
              />
             </div  >
              <div className="container-inputs">
-             <label>edad</label>
-            <input ref={inputAge} type="text" onChange={(e)=>{
+             <Form.Label>edad</Form.Label>
+            <Form.Control ref={inputAge} type="number" onChange={(e)=>{
                 setEmployeeData({...employeeData,age:e.target.value})
             }}/>
              </div>
             <div className="container-inputs">
-            <label>Telefono</label>
-            <input ref={inputPhone} type="text" onChange={(e)=>{
+            <Form.Label>Telefono</Form.Label>
+            <Form.Control ref={inputPhone} type="text" onChange={(e)=>{
                 setEmployeeData({...employeeData,phone:e.target.value})
             }} />
             </div>
             <div className="container-inputs">
-            <label >Cargo que ocupa</label>
-            <input ref={inputRol} type="text" onChange={(e)=>{
+            <Form.Label >Cargo que ocupa</Form.Label>
+            <Form.Select ref={inputRol} className="select-rol" onChange={(e)=>{
                 setEmployeeData({...employeeData,rol:e.target.value})
-            }} />
+            }} >
+            <option value="" disabled selected hidden>Selecciona un cargo</option>
+                <option value="Gerente de piso" >Gerente de piso</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Cobrador">Cobrador</option>
+            </Form.Select>
             </div>
             </div>
             <Button className="btn-send-employee" type="submit" variant="warning">Crear empleado</Button>
-           </form>
+           </Form>
            </div>
         </div>
         </>

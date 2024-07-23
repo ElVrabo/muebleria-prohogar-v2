@@ -46,7 +46,7 @@ export const ProductsContextProvider = ({children})=>{
              setListProductsCart(listProductsCart.filter((product)=>product._id!==id))
            }
          } catch (error) {
-           
+        
          }
        }
     const getFavoriteProducts = async()=>{
@@ -101,7 +101,7 @@ export const ProductsContextProvider = ({children})=>{
           icon:"success"
       })
      } catch (error) {
-    
+    console.log('ocurrio el siguiente error: ', error)
       
      }
     //  console.log(error)

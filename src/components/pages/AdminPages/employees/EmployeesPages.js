@@ -20,31 +20,33 @@ const EmployeesPage = ()=>{
  useEffect(()=>{
     const loadEmployees = async()=>{
         await getEmployees()
-        setIsLoading(false)   
+        setIsLoading(false)  
+        
     }
-    loadEmployees()
- },[])   
-
+     loadEmployees()
+   
+ },[])  
+ 
  useEffect(()=>{
     if(!isLoading && listEmployees.length === 0){
-          showAlert()
-      } 
+        showAlert()
+    }
+    
+ },[isLoading,listEmployees])
 
-      async function showAlert(){
-        const result = await MySwal.fire({
-            title:"No hay empleados",
-            icon:"error",
-            showCancelButton:true,
-            confirmButtonText:"Agregar nuevo empleado",
-            cancelButtonText:"Cerrar"
-        })
-        if(result.isConfirmed){
-            navigate(CREATEEMPLOYEESPAGES)
-        }
-      }
-     
- },[isLoading, listEmployees])
 
+ async function showAlert(){
+    const result = await MySwal.fire({
+        title:"No hay empleados",
+        icon:"error",
+        showCancelButton:true,
+        confirmButtonText:"Agregar nuevo empleado",
+        cancelButtonText:"Cerrar"
+    })
+    if(result.isConfirmed){
+        navigate(CREATEEMPLOYEESPAGES)
+    }
+  }
 
 
 

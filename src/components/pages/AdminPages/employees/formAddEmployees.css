@@ -42,6 +42,14 @@
 .btn-send-employee:hover{
     color:#ffffff
 }
+.select-rol{
+  border: 1px solid #f4f2ee;
+  border-radius: 5px;
+  background-color: #f4f2ee;
+  display: flex;
+  justify-content: center;
+  text-align-last: center;
+}
 
 @media (max-width: 760px) {
     .container-grid {
@@ -77,5 +85,6 @@
     .btn-send-employee {
       width: 50%; /* Ajusta el ancho del botón al 100% */
     }
+    
   }
   
