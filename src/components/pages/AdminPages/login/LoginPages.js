@@ -19,7 +19,7 @@ const MySwal = withReactContent(Swal)
            navigate(FORMADDPRODUCTS)
         }else{
           MySwal.fire({
-            title:'Las credenciales son invalidas',
+            title:'Las credenciales no son invalidas',
             icon:'error'
           })
         }
@@ -37,7 +37,7 @@ const MySwal = withReactContent(Swal)
                 <Form.Control onChange={(e)=>{
                     setAdminData({...adminData, password: e.target.value})
                 }}   type="password" placeholder="contraseña"/>
-                <Button className="btn-admin"  variant="warning" onClick={login}>Ingresar</Button>
+                <Button className="btn-login"  variant="warning" onClick={login}>Ingresar</Button>
                 
             </Form>
          </div>
