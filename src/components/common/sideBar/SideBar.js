@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./sideBar.css"
 import { Link, useNavigate } from "react-router-dom"
-import { CREATEEMPLOYEESPAGES, CREATEUSERSPAGES, EMPLOYEESPAGES, FORMADDPRODUCTS, FORMPROVIDERPRODUCTSPAGES, LISTPROVIDERPRODUCTS, LOGINADMIN, MANAGEPRODUCTS } from "../../../config/routes/path"
+import { CREATEEMPLOYEESPAGES, CREATEUSERSPAGES, EMPLOYEESPAGES, FORMADDPRODUCTS, FORMPROVIDERPRODUCTSPAGES, LISTPROVIDERPRODUCTS, LOGINADMIN, MANAGEPRODUCTS, PRODUCTSPAGES } from "../../../config/routes/path"
 import iconEmployees from "../../../assets/icons/empleados.png"
 import iconProviders from "../../../assets/icons/paquetes.png"
 import iconProducts from "../../../assets/icons/agregar-producto.png"
@@ -32,7 +32,7 @@ const SideBar = ()=>{
             {subMenuOpen.inventarioOpen && (
                 <div className="submenu">
                     <Link to={FORMADDPRODUCTS} className="submenu-links">Agregar</Link>
-                    <Link to={MANAGEPRODUCTS} className="submenu-links" >Ver inventario</Link>
+                    <Link to={PRODUCTSPAGES} className="submenu-links" >Ver inventario</Link>
                 </div>
             )}
             <div className="container-providers" >
