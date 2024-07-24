@@ -57,8 +57,8 @@ const FormAddSellers = ()=>{
                 </div>
               
             
-                <div className="btn-add-provider">
-                <Button variant="warning" type="submit" style={{color:"#ffffff"}} >Agregar proveedor</Button>
+                <div className="container-btn-add-provider">
+                <Button className="btn-add-provider" variant="warning" type="submit">Agregar proveedor</Button>
                 </div>
                 </div>
             </Form>
