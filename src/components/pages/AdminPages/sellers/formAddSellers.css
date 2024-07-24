@@ -76,11 +76,16 @@
     display: flex;
     flex-direction: column;
 }
-.btn-add-provider{
+.container-btn-add-provider{
     display: flex;
     justify-content: center;
 }
-
+.btn-add-provider{
+  color: #ffffff;
+}
+.btn-add-provider:hover{
+  color: #ffffff;
+}
 
 @media (max-width: 768px) {
     .container-grid {
