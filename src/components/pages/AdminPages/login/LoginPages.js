@@ -12,7 +12,6 @@ const MySwal = withReactContent(Swal)
         username: null,
         password: null,
     })
-    const msjError = useRef()
     const navigate = useNavigate()
 
     const login = ()=>{
@@ -38,9 +37,6 @@ const MySwal = withReactContent(Swal)
                 <Form.Control onChange={(e)=>{
                     setAdminData({...adminData, password: e.target.value})
                 }}   type="password" placeholder="contraseña"/>
-                <div style={{backgroundColor:"red", borderRadius:"5px"}}>
-                    <p style={{color:"white"}} ref={msjError}></p>
-                </div>
                 <Button className="btn-admin"  variant="warning" onClick={login}>Ingresar</Button>
                 
             </Form>
