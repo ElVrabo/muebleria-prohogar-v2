@@ -1,5 +1,5 @@
 import "./formAddEmployees.css"
-import React, { useState,FormEvent, useContext, useRef } from "react"
+import React, { useState, useContext, useRef } from "react"
 import { Button } from "react-bootstrap"
 import { employeesContext } from "../../../../context/employeesContext"
 import SideBar from "../../../common/sideBar/SideBar"
@@ -26,7 +26,7 @@ const FormAddEmployees = ()=>{
             title:"Rellena todos los campos",
             icon:"error"
         })
-        return 
+        
         }
         const employee={
          username:employeeData.username,
