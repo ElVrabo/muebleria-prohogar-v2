@@ -104,7 +104,7 @@ return (
             await deleteProductsOnSale(product._id)
             }}>Eliminar</Button> */}
             <img className="icon-edit" src={iconEdit} alt="icono de editar" onClick={()=>{
-              navigate(`/manageProducts/${product._id}`)
+              navigate(`/formaddProducts/${product._id}`)
             }} />
             {/* <Button style={{color:"#ffffff"}} variant="warning" onClick={()=>{
             navigate(`/manageProducts/${product._id}`)
