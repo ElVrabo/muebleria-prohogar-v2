@@ -123,11 +123,13 @@ try {
             /*si el servidor no responde nada quiere decir que el token es invalido y el usuario
             no esta autenticado*/ 
             if(!res.data){
+                console.log('El servidor no respondio con el dato del usuario')
                 setIsAuth(false)
                 setUserData(null)
                 setLoading(false)
                 return
             } else{
+                console.log(res.data)
                 /*Si responde algo el servidor quiere decir que el usuario si esta autenticado, y se
             establecen los datos de ese usuario en userData e isAuth es true, con esto cada que se
             refresque la pagina se seguiran viendo los datos del usuario*/ 
