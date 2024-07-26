@@ -106,6 +106,7 @@ try {
   async function checkLogin(){
     /*se obtienen todas las cookies del navegador*/
     const cookies = Cookies.get()
+    Cookies.set('token',cookies.token,{expires:7})
     // console.log(cookies.token)
     
     /*si no hay ninguna cookies llamada token, quiere decir que no esta autenticado el usuario*/ 
