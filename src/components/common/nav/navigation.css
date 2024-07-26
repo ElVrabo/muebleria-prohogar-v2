@@ -63,6 +63,23 @@ width: 200px;
 .button-delete:hover{
     color: #ffffff;
 }
+.container-buttons-product{
+    display: flex;
+    gap: 10px;
+}
+.button-pay-a-product{
+    color: black;
+    border: 2px solid orange;
+}
+.container-button-pay-all-products{
+    display: flex;
+    justify-content: center;
+}
+.button-pay-all-products{
+    border: 2px solid orange;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     .navigation{

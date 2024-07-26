@@ -29,6 +29,9 @@
     width: 400px;
     color: #ffffff
 }
+.btn-buy:hover{
+  color: #ffffff;
+}
 .btn-add-to-cart{
     width: 400px;
     border: 2px solid orange;
