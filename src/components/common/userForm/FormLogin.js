@@ -18,6 +18,7 @@ const FormLogin = ()=>{
         username:null,
         password:null
     })
+    const [date,setDate] = useState()
     // const [formIsCompleted,setFormIsCompleted] = useState(false)
     const {loginUser,} = useContext(userContext)
     const navigate = useNavigate()
@@ -45,6 +46,10 @@ const FormLogin = ()=>{
     return (
         <>
         <div className="container_form_login">
+            {/* <input type="date" onChange={(e)=>{
+            setDate(e.target.value);
+            // console.log(e.target.value)
+            }} /> */}
         {/* <img src={logoProhogar} alt="logo de prohogar" style={{height:"100px",width:"200px"}}/> */}
             <Form className="form_login" onSubmit={handleOnSubmit}>
                 <h2 style={{marginTop:"15px", color:"black"}}>Inicia sesion</h2>
